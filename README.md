@@ -54,7 +54,7 @@ For more examples [click here](http://ropensci.org/tutorials/taxizesoap_tutorial
 
 #### Development version from GitHub:
 
-You'll need `XMLSchema` and `SSOAP`
+You'll need `XMLSchema` and `SSOAP`. I have versions of these packages on my personal GitHub account that seem to work better than the versions on Omegahat.
 
 ```r
 install.packages("devtools")
@@ -62,7 +62,7 @@ devtools::install_github(c("sckott/XMLSchema", "sckott/SSOAP"))
 ```
 
 ```r
-devtools::install_github("taxizesoap", "ropensci")
+devtools::install_github("ropensci/taxizesoap")
 library('taxizesoap')
 ```
 
