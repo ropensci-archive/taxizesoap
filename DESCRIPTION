@@ -10,7 +10,6 @@ BugReports: https://github.com/ropensci/taxizesoap/issues
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 LazyData: yes
-VignetteBuilder: knitr
 Roxygen: list(wrap = FALSE)
 Depends:
     R(>= 2.10.0),
