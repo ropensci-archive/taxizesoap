@@ -21,17 +21,6 @@ classification_s(...)
 \item{callopts}{Curl options passed on to \code{\link[httr]{GET}}}
 
 \item{id}{character; identifiers, returned by \code{\link[taxizesoap]{get_wormsid}}.}
-
-\item{start}{The first record to return. If omitted, the results are returned
-from the first record (start=0). This is useful if the total number of
-  results is larger than the maximum number of results returned by a single
-  Web service query (currently the maximum number of results returned by a
-  single query is 500 for terse queries and 50 for full queries).}
-
-\item{checklist}{character; The year of the checklist to query, if you want a specific
-year's checklist instead of the lastest as default (numeric).}
-
-\item{key}{Your API key; loads from .Rprofile.}
 }
 \value{
 A named list of data.frames with the taxonomic classifcation of

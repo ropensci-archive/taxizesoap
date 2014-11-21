@@ -8,14 +8,6 @@
 #' @param id character; identifiers, returned by \code{\link[taxizesoap]{get_wormsid}}.
 #' @param callopts Curl options passed on to \code{\link[httr]{GET}}
 #' @param ... Other arguments passed to \code{\link[taxizesoap]{get_wormsid}}
-#' @param start The first record to return. If omitted, the results are returned
-#'   	from the first record (start=0). This is useful if the total number of
-#' 		results is larger than the maximum number of results returned by a single
-#' 		Web service query (currently the maximum number of results returned by a
-#' 		single query is 500 for terse queries and 50 for full queries).
-#' @param checklist character; The year of the checklist to query, if you want a specific
-#' 		year's checklist instead of the lastest as default (numeric).
-#' @param key Your API key; loads from .Rprofile.
 #'
 #' @return A named list of data.frames with the taxonomic classifcation of
 #'    every supplied taxa.

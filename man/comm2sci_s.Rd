@@ -14,9 +14,6 @@ comm2sci_s(commnames, db = "worms", simplify = TRUE, ...)
 return variable formats from different sources, usually a data.frame.}
 
 \item{...}{Further arguments passed on to internal methods.}
-
-\item{itisby}{Search for common names across entire names (search, default),
-at beginning of names (begin), or at end of names (end).}
 }
 \value{
 A vector of names.
@@ -35,6 +32,6 @@ Scott Chamberlain (myrmecocystus@gmail.com)
 \seealso{
 \code{\link[taxizesoap]{worms_records}}
 
-\code{\link[taxizesoap]{sci2comm}}
+\code{\link[taxizesoap]{sci2comm_s}}
 }
 
