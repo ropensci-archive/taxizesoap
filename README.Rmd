@@ -5,6 +5,8 @@ taxizesoap
 
 `taxizesoap` is like [taxize](), but for data sources that use SOAP data transfer protocol, which is hard to support in R. This package won't go on CRAN.
 
+Most functions in this package are different from those in `taxize`, but there are some of the same (e.g,. `classification()`). In this package, where a function is named the same as in `taxize`, I've added a `_s` at the end of the function representing the version of that function in the `taxizesoap` package. This is to avoid confounding effects when both packages are loaded at the same time.
+
 ### Currently implemented in `taxizesoap`
 
 <table>
@@ -46,11 +48,11 @@ taxizesoap
 </tbody>
 </table>
 
+**Note:** Euro+Med is available through PESI.
+
 ## Install taxizesoap
 
-### Development version from GitHub:
-
-You'll need `XMLSchema` and `SSOAP`. I have versions of these packages on my personal GitHub account that seem to work better than the versions on Omegahat.
+You'll need `XMLSchema` and `SSOAP`. I have versions of these packages on my personal GitHub account that seem to work better than the versions on Omegahat, and from there you can take advantage of the easy `install_github()`.
 
 ```{r eval=FALSE}
 install.packages("devtools")
