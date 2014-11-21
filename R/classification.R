@@ -1,38 +1,38 @@
 #' Retrieve the taxonomic hierarchy for a given taxon ID.
-#' 
+#'
 #' @import XML RCurl plyr
-#' 
+#'
 #' @param x character; taxons to query.
-#' @param db character; database to query. either \code{ncbi}, \code{itis}, 
+#' @param db character; database to query. either \code{ncbi}, \code{itis},
 #'    \code{eol}, \code{col}, \code{tropicos}, \code{gbif}.
-#' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}}, 
-#'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}}, 
-#'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}}, 
-#'    \code{\link[taxize]{get_gbifid}}.
-#' @param callopts Curl options passed on to \code{\link[httr]{GET}}
-#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}}, 
-#'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}}, 
+#' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}},
+#'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
 #'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
 #'    \code{\link[taxize]{get_gbifid}}.
-#' @param start The first record to return. If omitted, the results are returned 
-#' 		from the first record (start=0). This is useful if the total number of 
-#' 		results is larger than the maximum number of results returned by a single 
-#' 		Web service query (currently the maximum number of results returned by a 
+#' @param callopts Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}},
+#'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
+#'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
+#'    \code{\link[taxize]{get_gbifid}}.
+#' @param start The first record to return. If omitted, the results are returned
+#' 		from the first record (start=0). This is useful if the total number of
+#' 		results is larger than the maximum number of results returned by a single
+#' 		Web service query (currently the maximum number of results returned by a
 #' 		single query is 500 for terse queries and 50 for full queries).
-#' @param checklist character; The year of the checklist to query, if you want a specific 
+#' @param checklist character; The year of the checklist to query, if you want a specific
 #' 		year's checklist instead of the lastest as default (numeric).
 #' @param key Your API key; loads from .Rprofile.
-#' 
-#' @return A named list of data.frames with the taxonomic classifcation of 
+#'
+#' @return A named list of data.frames with the taxonomic classifcation of
 #'    every supplied taxa.
-#' @note If IDs are supplied directly (not from the \code{get_*} functions) you 
-#'    must specify the type of ID. There is a timeout of 1/3 seconds between 
+#' @note If IDs are supplied directly (not from the \code{get_*} functions) you
+#'    must specify the type of ID. There is a timeout of 1/3 seconds between
 #'    querries to NCBI.
-#' 
-#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}, 
-#'    \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}}, 
+#'
+#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
+#'    \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}},
 #'    \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_gbifid}}
-#' 
+#'
 #' @export
 #' @examples \dontrun{
 #' # Plug in taxon names directly
@@ -45,12 +45,12 @@
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'col', verbose=FALSE)
 #' classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 #' classification(c("Poa annua", "aaa vva"), db = 'tropicos')
-#' 
+#'
 #' classification(x="Salvelinus fontinalis", db = 'worms')
-#' 
+#'
 #' # Use methods for get_uid, get_tsn, get_eolid, get_colid, get_tpsid, or get_wormsid
 #' classification(get_uid(c("Chironomus riparius", "Puma concolor")))
-#' 
+#'
 #' classification(get_uid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_tsn(c("Chironomus riparius", "aaa vva")))
 #' classification(get_tsn(c("Chironomus riparius", "aaa vva"), verbose = FALSE))
@@ -59,24 +59,24 @@
 #' classification(get_tpsid(c("Poa annua", "aaa vva")))
 #' classification(get_gbifid(c("Poa annua", "Bison bison")))
 #' classification(get_wormsid("Salvelinus fontinalis"))
-#' 
+#'
 #' # Pass many ids from class "ids"
 #' out <- get_ids(names="Puma concolor", db = c('ncbi','gbif'))
 #' cl <- classification(out)
-#' 
+#'
 #' # Bind width-wise from class classification_ids
 #' cbind(cl)
-#' 
+#'
 #' # Bind length-wise
 #' rbind(cl)
-#' 
+#'
 #' # Many names to get_ids
 #' out <- get_ids(names=c("Puma concolor","Accipiter striatus"), db = c('ncbi','itis','col'))
 #' cl <- classification(out)
 #' rbind(cl)
 #' cbind(cl)
-#' 
-#' # rbind and cbind on class classification (from a call to get_colid, get_tsn, etc. 
+#'
+#' # rbind and cbind on class classification (from a call to get_colid, get_tsn, etc.
 #' # - other than get_ids)
 #' cl_col <- classification(get_colid(c("Puma concolor","Accipiter striatus")))
 #' cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")))
@@ -87,12 +87,12 @@
 #' cbind(cl_col)
 #' cbind(cl_uid)
 #' cbind(cl_tsn)
-#' 
+#'
 #' tsns <- get_tsn(c("Puma concolor","Accipiter striatus"))
 #' cl_tsns <- classification(tsns)
 #' cbind(cl_tsns)
 #' }
-#' 
+#'
 #' @examples \donttest{
 #' # Fails
 #' classification(315576)
@@ -164,7 +164,7 @@ process_ids <- function(input, fxn, ...){
 #' @method classification tsn
 #' @export
 #' @rdname classification
-classification.tsn <- function(id, callopts = list(), ...) 
+classification.tsn <- function(id, callopts = list(), ...)
 {
   fun <- function(x){
     # return NA if NA is supplied
@@ -200,11 +200,11 @@ classification.uid <- function(id, ...) {
       searchurl <- paste(baseurl, ID, sep = "&")
       tt <- getURL(searchurl)
       ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
-      out <- data.frame(name = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName", xmlValue), 
+      out <- data.frame(name = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName", xmlValue),
                         rank = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank", xmlValue),
                         stringsAsFactors = FALSE)
       out <- rbind(out, c(xpathSApply(ttp, "//TaxaSet/Taxon/ScientificName", xmlValue),
-        xpathSApply(ttp, "//TaxaSet/Taxon/Rank", xmlValue), 
+        xpathSApply(ttp, "//TaxaSet/Taxon/Rank", xmlValue),
         xpathSApply(ttp, "//TaxaSet/Taxon/TaxId", xmlValue)))
       return(out)
     }
@@ -226,7 +226,7 @@ classification.uid <- function(id, ...) {
 classification.eolid <- function(id, key = NULL, callopts = list(), ...) {
   common_names = NULL
   fun <- function(x){
-    if(is.na(x)){ 
+    if(is.na(x)){
       out <- NA
     } else {
       url = 'http://www.eol.org/api/hierarchy_entries/1.0/'
@@ -273,19 +273,19 @@ classification.colid <- function(id, start = NULL, checklist = NULL, ...) {
           url <- gsub("year", cc, url)
         }
       }
-        
+
       args <- compact(list(id = x, response = "full", start = start))
       out <- getForm(url, .params = args)
       tt <- xmlParse(out)
-      
+
       out <- data.frame(name = xpathSApply(tt, "//classification//name", xmlValue),
                         rank = xpathSApply(tt, "//classification//rank", xmlValue),
                         stringsAsFactors = FALSE)
       # add querried taxon
-      out <- rbind(out, c(xpathSApply(tt, "//result/name", xmlValue), 
+      out <- rbind(out, c(xpathSApply(tt, "//result/name", xmlValue),
                           xpathSApply(tt, "//result/rank", xmlValue)))
 
-      
+
     }
     return(out)
   }
@@ -307,12 +307,12 @@ classification.tpsid <- function(id, key = NULL, callopts = list(), ...) {
     } else {
       url <- sprintf('http://services.tropicos.org/Name/%s/HigherTaxa', x)
       key <- getkey(key, "tropicosApiKey")
-      args <- taxize_compact(list(format='json', apikey=key))
+      args <- tsc(list(format='json', apikey=key))
       tt <- GET(url, query = args, callopts)
       stop_for_status(tt)
       out <- content(tt)
-      if(names(out[[1]])[[1]] == "Error"){ 
-        out <- data.frame(ScientificName=NA, Rank=NA) 
+      if(names(out[[1]])[[1]] == "Error"){
+        out <- data.frame(ScientificName=NA, Rank=NA)
       } else {
         out <- do.call(rbind.fill, lapply(out, data.frame))[,c('ScientificName','Rank')]
       }
@@ -335,7 +335,7 @@ classification.gbifid <- function(id, callopts = list(), ...) {
       out <- NA
     } else {
       out <- suppressWarnings(tryCatch(gbif_name_usage(key = x), error=function(e) e))
-      if(is(out, "simpleError")){ 
+      if(is(out, "simpleError")){
         out <- NA
       } else {
 #         out <- do.call(rbind.fill, lapply(out, data.frame))[,c('ScientificName','Rank')]
@@ -373,7 +373,7 @@ classification.wormsid <- function(id, callopts = list(), ...) {
 #' @method classification ids
 #' @export
 #' @rdname classification
-classification.ids <- function(id, ...) 
+classification.ids <- function(id, ...)
 {
   fun <- function(x, ...){
     # return NA if NA is supplied
@@ -428,7 +428,7 @@ cbind.classification_ids <- function(...)
   input <- c(...)
   # remove non-data.frames
   input <- input[vapply(input, function(x) class(x[[1]]), "") %in% "data.frame"]
-  
+
   gethiernames <- function(x){
     x$name <- as.character(x$name)
     x$rank <- as.character(x$rank)
@@ -436,7 +436,7 @@ cbind.classification_ids <- function(...)
     names(values) <- tolower(x[,'rank'])
     return( values )
   }
-  do.call(rbind.fill, lapply(input, function(x){ 
+  do.call(rbind.fill, lapply(input, function(x){
       tmp <- lapply(x, gethiernames)
       do.call(rbind.fill, tmp)
     })
@@ -463,7 +463,7 @@ rbind.classification_ids <- function(...)
   #           }
   #     do.call(rbind, coll)
   #   }))
-  
+
   df <- lapply(input, function(x){
     coll <- list()
     for(i in seq_along(x)){
@@ -471,7 +471,7 @@ rbind.classification_ids <- function(...)
     }
     coll
   })
-  
+
   get <- list()
   for(i in seq_along(df[[1]])){
     tmp <- do.call(rbind, lapply(df, "[[", i))
@@ -481,8 +481,8 @@ rbind.classification_ids <- function(...)
     tmp <- data.frame(source = source2, tmp)
     get[[i]] <- tmp
   }
-  
-  if(length(get) == 1) 
+
+  if(length(get) == 1)
     get[[1]]
   else
     get

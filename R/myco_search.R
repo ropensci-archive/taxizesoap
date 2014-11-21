@@ -1,22 +1,22 @@
 #' Search Mycobank
-#' 
+#'
 #' @import plyr data.table httr XML
 #' @export
 #' @param layout (character) One of 'mbwservice' or 'mycobank'. There is no explanation of what
 #' these different layouts are. Help anyone?
 #' @param filter (character) A variety of inputs. See Details.
 #' @param limit (integer) Number to return. Default: 100
-#' @param ... Futher args passed onto httr::GET 
-#' 
+#' @param ... Futher args passed onto httr::GET
+#'
 #' @details
-#' 
-#' For the filter p?arameter, use the following syntax: 
-#' \code{<FieldCode1><Operator>"<Value1>" AND|OR|NOT <FieldCode2><Operator>"<Value2>"}. Use the 
-#' special value: $NULL$ to filter on Null values and $EMPTY$ to filter on empty string values. 
+#'
+#' For the filter p?arameter, use the following syntax:
+#' \code{<FieldCode1><Operator>"<Value1>" AND|OR|NOT <FieldCode2><Operator>"<Value2>"}. Use the
+#' special value: $NULL$ to filter on Null values and $EMPTY$ to filter on empty string values.
 #' These two special values are not case sensitive.
-#' 
-#' For mbwservice, the options are 
-#' 
+#'
+#' For mbwservice, the options are
+#'
 #' \itemize{
 #'  \item Authors_ text, e.g., \code{Authors_ CONTAINS "Value"}
 #'  \item Epithet_ text, e.g., \code{Epithet_ CONTAINS "Value"}
@@ -24,9 +24,9 @@
 #'  \item Name text, e.g., \code{Name CONTAINS "Value"}
 #'  \item Year of publication DateTime (YYYYMMDDHHmmss), e.g., \code{NameYear_<"20140826022700"}
 #' }
-#' 
-#' For mycobank, the options are 
-#' 
+#'
+#' For mycobank, the options are
+#'
 #' \itemize{
 #'  \item Authors_ text, e.g., \code{Authors_ CONTAINS "Value"}
 #'  \item Classification_ text, e.g., \code{Classification_="Value"}
@@ -38,9 +38,9 @@
 #'  \item Synonymy text, e.g., \code{E4060 CONTAINS "Value"}
 #'  \item Year of publication DateTime (YYYYMMDDHHmmss), e.g., \code{NameYear_<"20140826022700"}
 #' }
-#' 
+#'
 #' Operator options
-#' 
+#'
 #' \itemize{
 #'  \item =	Equality
 #'  \item <	Lower than
@@ -52,11 +52,11 @@
 #'  \item STARTSWITH	Starts with the specified string
 #'  \item ENDSWITH	Ends with the specified string
 #' }
-#' 
+#'
 #' @references \url{http://www.mycobank.org/Services/Generic/Help.aspx?s=searchservice}
-#' @return A list of length two, with slots for data and links, in which NROW(data) should 
+#' @return A list of length two, with slots for data and links, in which NROW(data) should
 #' equal length(links).
-#' 
+#'
 #' @examples \dontrun{
 #' myco_search(filter='MycoBankNr_="344025"')
 #' head(myco_search(filter='MycoBankNr_>"344025"'))
@@ -64,11 +64,11 @@
 #' myco_search(filter='Name CONTAINS "Candida"')
 #' myco_search(filter='Name STARTSWITH "Candida"')
 #' myco_search(filter='Name ENDSWITH "Candida"')
-#' 
+#'
 #' # using layout = mycobank
 #' myco_search(layout='mycobank', filter='MycoBankNr_="344025"')
 #' head(myco_search(layout='mycobank', filter='MycoBankNr_>"344025"'))
-#' 
+#'
 #' # Curl debugging
 #' library('httr')
 #' myco_search(filter='MycoBankNr_="344025"', config=verbose())
@@ -78,13 +78,13 @@ myco_search <- function(layout='mbwservice', filter="", limit=100, ...)
 {
   layout <- switch(layout, mycobank = '14682616000000161', mbwservice = '14682616000003562')
   url <- "http://www.mycobank.org/Services/Generic/SearchService.svc/rest/xml"
-  args <- taxize_compact(list(layout=layout, filter=filter, limit=limit))
+  args <- tsc(list(layout=layout, filter=filter, limit=limit))
   res <- GET(url, query=args, ...)
   stop_for_status(res)
   tt <- content(res, "text")
   parsed <- xmlParse(tt)
   nodes <- xpathSApply(parsed, "//Taxon")
-  dat <- lapply(nodes, function(x){ 
+  dat <- lapply(nodes, function(x){
     tmp <- xmlToList(x, simplify=FALSE)
     tmp[sapply(tmp, is.null)] <- NA
     c(tmp[!names(tmp) == 'U3733'], parse_links(tmp$U3733))
