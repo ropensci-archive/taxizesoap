@@ -64,3 +64,14 @@ classification_s.wormsid <- function(id, callopts = list(), ...) {
   class(out) <- 'classification_s'
   return(out)
 }
+
+process_ids <- function(input, fxn, ...){
+  g <- tryCatch(as.numeric(as.character(input)), warning=function(e) e)
+  if(is(g,"numeric")){
+    id <- input
+    class(id) <- "tsn"
+  } else {
+    id <- eval(fxn)(input, ...)
+  }
+  id
+}
