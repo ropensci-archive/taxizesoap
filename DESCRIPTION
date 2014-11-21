@@ -22,14 +22,9 @@ Imports:
     plyr,
     httr (>= 0.2),
     jsonlite,
-    foreach,
-    ape,
-    Taxonstand,
     reshape2,
     data.table,
-    vegan,
-    assertthat,
-    bold,
+    assertthat
 Suggests:
     testthat,
     roxygen2,
