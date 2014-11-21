@@ -2,14 +2,14 @@
 #'
 #' @param x character; taxons to query.
 #' @param db character; database to query. Only \code{worms} for now
-#' @param id character; identifiers, returned by \code{\link[taxize]{get_wormsid}}
+#' @param id character; identifiers, returned by \code{\link[taxizesoap]{get_wormsid}}
 #' @param ... Other passed arguments.
 #'
 #' @return A named list of data.frames with the synonyms of every supplied taxa.
 #' @note If IDs are supplied directly (not from the \code{get_*} functions) you
 #'    must specify the type of ID.
 #'
-#' @seealso \code{\link[taxize]{get_wormsid}}
+#' @seealso \code{\link[taxizesoap]{get_wormsid}}
 #'
 #' @export
 #' @examples \dontrun{

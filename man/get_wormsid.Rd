@@ -46,6 +46,6 @@ get_wormsid(searchterm="salmon", searchtype="common")
 }
 }
 \seealso{
-\code{\link[taxize]{get_uid}}, \code{\link[taxize]{classification}}
+\code{\link[taxizesoap]{classification_s}}
 }
 

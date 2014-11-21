@@ -17,7 +17,7 @@
 #'    Comes with an attribute \emph{match} to investigate the reason for NA (either 'not found',
 #'    'found' or if ask = FALSE 'multi match')
 #'
-#' @seealso \code{\link[taxize]{get_uid}}, \code{\link[taxize]{classification}}
+#' @seealso \code{\link[taxizesoap]{classification_s}}
 #'
 #' @export
 #' @examples \dontrun{

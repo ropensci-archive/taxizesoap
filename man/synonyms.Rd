@@ -18,7 +18,7 @@ synonyms(...)
 
 \item{db}{character; database to query. Only \code{worms} for now}
 
-\item{id}{character; identifiers, returned by \code{\link[taxize]{get_wormsid}}}
+\item{id}{character; identifiers, returned by \code{\link[taxizesoap]{get_wormsid}}}
 }
 \value{
 A named list of data.frames with the synonyms of every supplied taxa.
@@ -40,6 +40,6 @@ synonyms(get_wormsid("Salvelinus fontinalis"))
 }
 }
 \seealso{
-\code{\link[taxize]{get_wormsid}}
+\code{\link[taxizesoap]{get_wormsid}}
 }
 

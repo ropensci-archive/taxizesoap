@@ -12,7 +12,7 @@ sci2comm(...)
 \method{sci2comm}{wormsid}(id, simplify = TRUE, ...)
 }
 \arguments{
-\item{...}{Further arguments passed on to functions \code{\link[taxize]{get_wormsid}}.}
+\item{...}{Further arguments passed on to functions \code{\link[taxizesoap]{get_wormsid}}.}
 
 \item{scinames}{character; One or more scientific names or partial names.}
 
@@ -21,7 +21,7 @@ sci2comm(...)
 \item{simplify}{(logical) If TRUE, simplify output to a vector of names. If FALSE,
 return variable formats from different sources, usually a data.frame.}
 
-\item{id}{character; identifiers, as returned by \code{\link[taxize]{get_wormsid}}.}
+\item{id}{character; identifiers, as returned by \code{\link[taxizesoap]{get_wormsid}}.}
 }
 \value{
 List of character - vectors.
