@@ -12,7 +12,7 @@ classification_s(...)
 \method{classification_s}{wormsid}(id, callopts = list(), ...)
 }
 \arguments{
-\item{...}{Other arguments passed to \code{\link[taxize]{get_wormsid}}}
+\item{...}{Other arguments passed to \code{\link[taxizesoap]{get_wormsid}}}
 
 \item{x}{character; taxons to query.}
 
@@ -20,7 +20,7 @@ classification_s(...)
 
 \item{callopts}{Curl options passed on to \code{\link[httr]{GET}}}
 
-\item{id}{character; identifiers, returned by \code{\link[taxize]{get_wormsid}}.}
+\item{id}{character; identifiers, returned by \code{\link[taxizesoap]{get_wormsid}}.}
 
 \item{start}{The first record to return. If omitted, the results are returned
 from the first record (start=0). This is useful if the total number of
@@ -52,6 +52,6 @@ classification_s(get_wormsid("Salvelinus fontinalis"))
 }
 }
 \seealso{
-\code{\link[taxize]{get_wormsid}}
+\code{\link[taxizesoap]{get_wormsid}}
 }
 

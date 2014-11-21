@@ -11,8 +11,8 @@ get_ids_s(names, db = c("worms", "pesi"), ...)
 \item{db}{character; database to query. One or  more of \code{worms} or \code{pesi}. By
 default db is set to search all data sources.}
 
-\item{...}{Other arguments passed to \code{\link[taxize]{get_wormsid}},
-\code{\link[taxize]{get_pesiid}}.}
+\item{...}{Other arguments passed to \code{\link[taxizesoap]{get_wormsid}},
+\code{\link[taxizesoap]{get_pesiid}}.}
 }
 \value{
 A vector of taxonomic identifiers, each retaining their respective S3
@@ -37,6 +37,6 @@ get_ids_s(names="Salvelinus fontinalis", db = 'worms')
 }
 }
 \seealso{
-\code{\link[taxize]{get_wormsid}}, \code{\link[taxize]{get_pesiid}}
+\code{\link[taxizesoap]{get_wormsid}}, \code{\link[taxizesoap]{get_pesiid}}
 }
 

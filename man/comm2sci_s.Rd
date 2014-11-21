@@ -33,8 +33,8 @@ comm2sci_s(commnames=c('atlantic salmon','great white shark'), db='worms')
 Scott Chamberlain (myrmecocystus@gmail.com)
 }
 \seealso{
-\code{\link[taxize]{worms_records}}
+\code{\link[taxizesoap]{worms_records}}
 
-\code{\link[taxize]{sci2comm}}
+\code{\link[taxizesoap]{sci2comm}}
 }
 

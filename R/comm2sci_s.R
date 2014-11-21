@@ -8,9 +8,9 @@
 #'    return variable formats from different sources, usually a data.frame.
 #' @param ... Further arguments passed on to internal methods.
 #' @return A vector of names.
-#' @seealso \code{\link[taxize]{worms_records}}
+#' @seealso \code{\link[taxizesoap]{worms_records}}
 #' @export
-#' @seealso \code{\link[taxize]{sci2comm}}
+#' @seealso \code{\link[taxizesoap]{sci2comm}}
 #' @author Scott Chamberlain (myrmecocystus@@gmail.com)
 #' @examples \dontrun{
 #' comm2sci_s(commnames=c('atlantic salmon','great white shark'), db='worms')

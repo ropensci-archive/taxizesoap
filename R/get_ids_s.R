@@ -8,12 +8,12 @@
 #' @param names character; Taxonomic name to query.
 #' @param db character; database to query. One or  more of \code{worms} or \code{pesi}. By
 #'    default db is set to search all data sources.
-#' @param ... Other arguments passed to \code{\link[taxize]{get_wormsid}},
-#'    \code{\link[taxize]{get_pesiid}}.
+#' @param ... Other arguments passed to \code{\link[taxizesoap]{get_wormsid}},
+#'    \code{\link[taxizesoap]{get_pesiid}}.
 #' @return A vector of taxonomic identifiers, each retaining their respective S3
 #'    classes so that each element can be passed on to another function (see e.g.'s).
 #' @note There is a timeout of 1/3 seconds between queries to NCBI.
-#' @seealso \code{\link[taxize]{get_wormsid}}, \code{\link[taxize]{get_pesiid}}
+#' @seealso \code{\link[taxizesoap]{get_wormsid}}, \code{\link[taxizesoap]{get_pesiid}}
 #' @examples \dontrun{
 #' # Plug in taxon names directly
 #' ## By default you get ids for all data sources

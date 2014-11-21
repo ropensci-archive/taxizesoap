@@ -5,9 +5,9 @@
 #'
 #' @param x character; taxons to query.
 #' @param db character; database to query. Only \code{worms} for now.
-#' @param id character; identifiers, returned by \code{\link[taxize]{get_wormsid}}.
+#' @param id character; identifiers, returned by \code{\link[taxizesoap]{get_wormsid}}.
 #' @param callopts Curl options passed on to \code{\link[httr]{GET}}
-#' @param ... Other arguments passed to \code{\link[taxize]{get_wormsid}}
+#' @param ... Other arguments passed to \code{\link[taxizesoap]{get_wormsid}}
 #' @param start The first record to return. If omitted, the results are returned
 #'   	from the first record (start=0). This is useful if the total number of
 #' 		results is larger than the maximum number of results returned by a single
@@ -23,7 +23,7 @@
 #'    must specify the type of ID. There is a timeout of 1/3 seconds between
 #'    querries to NCBI.
 #'
-#' @seealso \code{\link[taxize]{get_wormsid}}
+#' @seealso \code{\link[taxizesoap]{get_wormsid}}
 #'
 #' @examples \dontrun{
 #' classification_s(x="Salvelinus fontinalis", db = 'worms')
