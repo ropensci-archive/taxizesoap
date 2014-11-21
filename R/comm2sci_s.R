@@ -13,10 +13,10 @@
 #' @seealso \code{\link[taxize]{sci2comm}}
 #' @author Scott Chamberlain (myrmecocystus@@gmail.com)
 #' @examples \dontrun{
-#' comm2sci(commnames=c('atlantic salmon','great white shark'), db='worms')
+#' comm2sci_s(commnames=c('atlantic salmon','great white shark'), db='worms')
 #' }
 
-comm2sci <- function(commnames, db='worms', simplify=TRUE, ...)
+comm2sci_s <- function(commnames, db='worms', simplify=TRUE, ...)
 {
   worms2sci <- function(simplify, ...){
     tmp <- worms_records(...)

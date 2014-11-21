@@ -12,22 +12,22 @@
 #'
 #' @author Scott Chamberlain (myrmecocystus@@gmail.com)
 #' @examples \dontrun{
-#' sci2comm(scinames='Squatina squatina', db='worms')
+#' sci2comm_s(scinames='Squatina squatina', db='worms')
 #'
 #' # Passing id in, works for sources: itis and ncbi
-#' sci2comm(get_wormsid('Squatina squatina'))
+#' sci2comm_s(get_wormsid('Squatina squatina'))
 #'
 #' # Don't simplify returned
-#' sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
+#' sci2comm_s(get_tsn('Helianthus annuus'), simplify=FALSE)
 #' }
-#' @rdname sci2comm
-sci2comm <- function(...){
-  UseMethod("sci2comm")
+#' @rdname sci2comm_s
+sci2comm_s <- function(...){
+  UseMethod("sci2comm_s")
 }
 
 #' @export
-#' @rdname sci2comm
-sci2comm.default <- function(scinames, db='worms', simplify=TRUE, ...)
+#' @rdname sci2comm_s
+sci2comm_s.default <- function(scinames, db='worms', simplify=TRUE, ...)
 {
   worms2comm <- function(x, simplify, ...){
     wormsids <- get_wormsid(x, ...)
@@ -53,8 +53,8 @@ sci2comm.default <- function(scinames, db='worms', simplify=TRUE, ...)
 }
 
 #' @export
-#' @rdname sci2comm
-sci2comm.wormsid <- function(id, simplify=TRUE, ...){
+#' @rdname sci2comm_s
+sci2comm_s.wormsid <- function(id, simplify=TRUE, ...){
   worms2comm <- function(id, ...){
     # if tsn is not found
     if(is.na(id)) {

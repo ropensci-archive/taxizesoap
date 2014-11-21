@@ -17,13 +17,13 @@
 #' @examples \dontrun{
 #' # Plug in taxon names directly
 #' ## By default you get ids for all data sources
-#' get_ids(names="Chironomus riparius")
+#' get_ids_s(names="Chironomus riparius")
 #'
 #' ## Or you can specify which source you want via the db parameter
-#' get_ids(names="Salvelinus fontinalis", db = 'worms')
+#' get_ids_s(names="Salvelinus fontinalis", db = 'worms')
 #' }
 
-get_ids <- function(names, db = c('worms','pesi'), ...)
+get_ids_s <- function(names, db = c('worms','pesi'), ...)
 {
   if(is.null(db))
     stop("Must specify on or more values for db!")

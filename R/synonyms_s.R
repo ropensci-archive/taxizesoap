@@ -14,35 +14,33 @@
 #' @export
 #' @examples \dontrun{
 #' # Plug in taxon names directly
-#' synonyms("Salvelinus fontinalis", db='worms')
+#' synonyms_s("Salvelinus fontinalis", db='worms')
 #'
 #' # Use methods for get_wormsid
-#' synonyms(get_wormsid("Salvelinus fontinalis"))
+#' synonyms_s(get_wormsid("Salvelinus fontinalis"))
 #' }
 
-synonyms <- function(...){
-  UseMethod("synonyms")
+synonyms_s <- function(...){
+  UseMethod("synonyms_s")
 }
 
-#' @method synonyms default
 #' @export
-#' @rdname synonyms
-synonyms.default <- function(x, db = NULL, ...){
+#' @rdname synonyms_s
+synonyms_s.default <- function(x, db = NULL, ...){
   if (is.null(db))
     stop("Must specify Identifier!")
 
   if (db == 'worms') {
     id <- get_wormsid(x, ...)
-    out <- synonyms(id, ...)
+    out <- synonyms_s(id, ...)
     names(out) <- x
   }
   return(out)
 }
 
-#' @method synonyms wormsid
 #' @export
-#' @rdname synonyms
-synonyms.wormsid <- function(id, ...)
+#' @rdname synonyms_s
+synonyms_s.wormsid <- function(id, ...)
 {
   fun <- function(x){
     if (is.na(x)) {
@@ -55,5 +53,4 @@ synonyms.wormsid <- function(id, ...)
   tmp <- lapply(id, fun)
   names(tmp) <- id
   return(tmp)
-#   return( lapply(id, fun) )
 }
