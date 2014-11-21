@@ -2,3 +2,4 @@
 ^\.Rproj\.user$
 man-roxygen
 .travis.yml
+README.Rmd
