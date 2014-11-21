@@ -3,21 +3,16 @@
 \alias{get_ids}
 \title{Retrieve taxonomic identifiers for a given taxon name.}
 \usage{
-get_ids(names, db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif",
-  "worms", "pesi", "ubio"), ...)
+get_ids(names, db = c("worms", "pesi"), ...)
 }
 \arguments{
 \item{names}{character; Taxonomic name to query.}
 
-\item{db}{character; database to query. One or  more of \code{ncbi}, \code{itis},
-\code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{worms}, \code{pesi},
-or \code{ubio}. By default db is set to search all data sources.}
+\item{db}{character; database to query. One or  more of \code{worms} or \code{pesi}. By
+default db is set to search all data sources.}
 
-\item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},
-\code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
-\code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
-\code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_wormsid}},
-\code{\link[taxize]{get_pesiid}}, or \code{\link[taxize]{get_ubioid}}.}
+\item{...}{Other arguments passed to \code{\link[taxize]{get_wormsid}},
+\code{\link[taxize]{get_pesiid}}.}
 }
 \value{
 A vector of taxonomic identifiers, each retaining their respective S3
@@ -38,29 +33,10 @@ There is a timeout of 1/3 seconds between queries to NCBI.
 get_ids(names="Chironomus riparius")
 
 ## Or you can specify which source you want via the db parameter
-get_ids(names="Chironomus riparius", db = 'ncbi')
 get_ids(names="Salvelinus fontinalis", db = 'worms')
-get_ids(names="Salvelinus fontinalis", db = 'ubio')
-get_ids(names="Salvelinus fontinalis", db = 'pesi')
-get_ids(names="Salvelinus fontinalis", db = c('worms','ncbi'))
-get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = 'ncbi')
-get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = c('ncbi','itis'))
-get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = c('ncbi','itis','col'))
-get_ids(names="Pinus contorta", db = c('ncbi','itis','col','eol','tropicos'))
-get_ids(names="ava avvva", db = c('ncbi','itis','col','eol','tropicos'))
-get_ids(names="ava avvva", db = c('ncbi','itis','col','eol','tropicos'), verbose=FALSE)
-
-# Pass on to other functions
-out <- get_ids(names="Pinus contorta", db = c('ncbi','itis','col','eol','tropicos'))
-classification(out$itis)
-synonyms(out$tropicos)
 }
 }
 \seealso{
-\code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
-   \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}},
-   \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_gbifid}}, or
-   \code{\link[taxize]{get_wormsid}}, \code{\link[taxize]{get_pesiid}}, or
-   \code{\link[taxize]{get_ubioid}}.
+\code{\link[taxize]{get_wormsid}}, \code{\link[taxize]{get_pesiid}}
 }
 
