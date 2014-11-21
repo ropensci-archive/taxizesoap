@@ -1,0 +1,160 @@
+taxizesoap
+=======
+
+[![Build Status](https://api.travis-ci.org/ropensci/taxizesoap.png?branch=master)](https://travis-ci.org/ropensci/taxizesoap)
+
+`taxizesoap` is like [taxize](), but for data sources that use SOAP data transfer protocol, which is hard to support in R. This package won't go on CRAN.
+
+### Currently implemented in `taxizesoap`
+
+<table>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+  <th style="text-align:left;">Souce</th>
+	<th style="text-align:left;">Function prefix</th>
+	<th style="text-align:left;">API Docs</th>
+	<th style="text-align:left;">API key</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">World Register of Marine Species (WoRMS)</td>
+	<td style="text-align:left;"><code>worms</code></td>
+	<td style="text-align:left;"><a href="http://www.marinespecies.org/aphia.php?p=webservice">link</a></td>
+	<td style="text-align:left;">none</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Pan-European Species directories Infrastructure (PESI)</td>
+	<td style="text-align:left;"><code>pesi</code></td>
+	<td style="text-align:left;"><a href="http://www.eu-nomen.eu/portal/webservices.php">link</a></td>
+	<td style="text-align:left;">none</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Mycobank</td>
+	<td style="text-align:left;"><code>myco</code></td>
+	<td style="text-align:left;"><a href="http://www.mycobank.org/Services/Generic/Help.aspx?s=searchservice">link</a></td>
+	<td style="text-align:left;">none</td>
+</tr>
+</tbody>
+</table>
+
+## Install taxizesoap
+
+### Development version from GitHub:
+
+You'll need `XMLSchema` and `SSOAP`. I have versions of these packages on my personal GitHub account that seem to work better than the versions on Omegahat.
+
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github(c("sckott/XMLSchema", "sckott/SSOAP"))
+```
+
+Then install `taxizesoap`
+
+```{r eval=FALSE}
+devtools::install_github("ropensci/taxizesoap")
+```
+
+Load the package
+
+```{r}
+library('taxizesoap')
+```
+
+### Get taxonomic ids
+
+PESI
+
+```{r}
+get_pesiid(searchterm = "Salvelinus")
+```
+
+Worms
+
+```{r}
+get_wormsid(searchterm = "Salvelinus fontinalis")
+```
+
+### Use taxonomic ids for more
+
+Get taxonomic classification
+
+```{r}
+classification_s(get_wormsid("Salvelinus fontinalis"))
+```
+
+### WORMS
+
+Get name from a WORMS id
+
+```{r}
+worms_name(ids=1080)
+```
+
+Common names from WoRMS ID
+
+```{r}
+worms_common(ids=c(1080,22388,160281,123080,22388))
+```
+
+Get records by ID, scientific name, common name, date, worms id, or external id.
+
+```{r}
+head( worms_records(scientific=c('Salmo','Aphanius')) )
+```
+
+Get sources/references by ID
+
+```{r}
+worms_sources(ids=1080)
+```
+
+Children search of WoRMS data.
+
+```{r}
+head( worms_children(ids=106135) )
+```
+
+### PESI
+
+Search for PESI scientific names and associated metadata.
+
+```{r}
+pesi_search(scientific='Ternatea vulgaris')
+```
+
+Get PESI scientific names from GUIDs
+
+```{r}
+pesi_name_scientific(guid='67C3CC9C-624A-40C5-B63A-AB880E0300D1')
+```
+
+Get PESI synonyms from GUIDs
+
+```{r}
+head( pesi_synonyms(guid='A0433E13-D7B5-49F2-86BA-A1777364C559') )
+```
+
+### Mycobank
+
+Search for a _Candida boidinii_
+
+```{r}
+myco_search(filter='Name CONTAINS "Candida boidinii"')
+```
+
+## Meta
+
+* Please [report any issues or bugs](https://github.com/ropensci/taxizesoap/issues).
+* License: MIT
+* Get citation information for `taxizesoap` in R doing `citation(package = 'taxizesoap')`
+
+[![ropensci](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
