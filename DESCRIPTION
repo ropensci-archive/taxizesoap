@@ -18,15 +18,9 @@ Depends:
 Imports:
     XML,
     RCurl (>= 1.6),
-    stringr,
     plyr,
     httr (>= 0.2),
-    jsonlite,
-    reshape2,
-    data.table,
-    assertthat
+    data.table
 Suggests:
-    testthat,
     roxygen2,
-    knitr,
     XMLSchema (>= 0.8-0)
