@@ -26,30 +26,30 @@
 #' @seealso \code{\link[taxize]{get_wormsid}}
 #'
 #' @examples \dontrun{
-#' classification(x="Salvelinus fontinalis", db = 'worms')
-#' classification(get_wormsid("Salvelinus fontinalis"))
+#' classification_s(x="Salvelinus fontinalis", db = 'worms')
+#' classification_s(get_wormsid("Salvelinus fontinalis"))
 #' }
-classification <- function(...){
-  UseMethod("classification")
+classification_s <- function(...){
+  UseMethod("classification_s")
 }
 
 #' @export
-#' @rdname classification
-classification.default <- function(x, db = NULL, callopts=list(), ...){
+#' @rdname classification_s
+classification_s.default <- function(x, db = NULL, callopts=list(), ...){
   if (is.null(db))
     stop("Must specify db!")
 
   if (db == 'worms') {
     id <- process_ids(x, get_wormsid, ...)
-    out <- classification(id, callopts=callopts, ...)
+    out <- classification_s(id, callopts=callopts, ...)
     names(out) <- x
   }
   return(out)
 }
 
 #' @export
-#' @rdname classification
-classification.wormsid <- function(id, callopts = list(), ...) {
+#' @rdname classification_s
+classification_s.wormsid <- function(id, callopts = list(), ...) {
   fun <- function(x){
     if(is.na(x)) {
       out <- NA
@@ -61,6 +61,6 @@ classification.wormsid <- function(id, callopts = list(), ...) {
   }
   out <- lapply(id, fun)
   names(out) <- id
-  class(out) <- 'classification'
+  class(out) <- 'classification_s'
   return(out)
 }

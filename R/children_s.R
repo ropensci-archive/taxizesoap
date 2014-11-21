@@ -7,31 +7,31 @@
 #' @return A named list of data.frames with the children names of every supplied taxa.
 #' You get an NA if there was no match in the database.
 #' @examples \dontrun{
-#' children("Aatolana", db = 'worms')
+#' children_s("Aatolana", db = 'worms')
 #' }
 
-children <- function(...){
-  UseMethod("children")
+children_s <- function(...){
+  UseMethod("children_s")
 }
 
 #' @export
-#' @rdname children
-children.default <- function(x, db = NULL, ...)
+#' @rdname children_s
+children_s.default <- function(x, db = NULL, ...)
 {
   if (is.null(db))
     stop("Must specify db value!")
 
   if (db == 'worms') {
     id <- get_wormsid(x, ...)
-    out <- children(id, ...)
+    out <- children_s(id, ...)
   }
   names(out) <- x
   return(out)
 }
 
 #' @export
-#' @rdname children
-children.wormsid <- function(x,  db = NULL, ...) {
+#' @rdname children_s
+children_s.wormsid <- function(x,  db = NULL, ...) {
   fun <- function(y){
     # return NA if NA is supplied
     if(is.na(y)){
@@ -43,7 +43,7 @@ children.wormsid <- function(x,  db = NULL, ...) {
     return(out)
   }
   out <- lapply(x, fun)
-  class(out) <- 'children'
+  class(out) <- 'children_s'
   attr(out, 'db') <- 'worms'
   return(out)
 }
