@@ -3,7 +3,7 @@ taxizesoap
 
 [![Build Status](https://api.travis-ci.org/ropensci/taxizesoap.png?branch=master)](https://travis-ci.org/ropensci/taxizesoap)
 
-`taxizesoap` is like [taxize](), but for data sources that use SOAP data transfer protocol, which is hard to support in R. This package won't go on CRAN.
+`taxizesoap` is an extension to [taxize](https://github.com/ropensci/taxize), but for data sources that use SOAP data transfer protocol, which is hard to support in R. This package won't go on CRAN.
 
 Most functions in this package are different from those in `taxize`, but there are some of the same (e.g,. `classification()`). In this package, where a function is named the same as in `taxize`, I've added a `_s` at the end of the function representing the version of that function in the `taxizesoap` package. This is to avoid confounding effects when both packages are loaded at the same time.
 
@@ -72,15 +72,6 @@ Load the package
 
 ```r
 library('taxizesoap')
-```
-
-```
-## Loading required package: SSOAP
-```
-
-```
-## Warning: replacing previous import by 'XMLSchema::.__C__URI' when loading
-## 'SSOAP'
 ```
 
 ### Get taxonomic ids
@@ -258,12 +249,12 @@ head( worms_records(scientific=c('Salmo','Aphanius')) )
 ## 5 Salmoniformes Salmonidae Salmo
 ## 6 Salmoniformes Salmonidae Salmo
 ##                                                                                                                                                                                                                                        citation
-## 1            Bailly, N. (2014). Salmo Linnaeus, 1758. In: Froese, R. and D. Pauly. Editors. (2014) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=126141 on 2014-11-21
-## 2       WoRMS (2014). Salmo (Osmerus) Linnaeus, 1758. In: Froese, R. and D. Pauly. Editors. (2014) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=154470 on 2014-11-21
-## 3                                                              Bailly, N. (2014). Salmo (Osmerus) eperlanus. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=154471 on 2014-11-21
-## 4 Bailly, N. (2014). Salmo abanticus Tortonese, 1954. In: Froese, R. and D. Pauly. Editors. (2014) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=712455 on 2014-11-21
-## 5     Bailly, N. (2014). Salmo albula Linnaeus, 1758. In: Froese, R. and D. Pauly. Editors. (2014) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=305943 on 2014-11-21
-## 6    Bailly, N. (2014). Salmo albus Bonnaterre, 1788. In: Froese, R. and D. Pauly. Editors. (2014) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=305944 on 2014-11-21
+## 1            Bailly, N. (2014). Salmo Linnaeus, 1758. In: Froese, R. and D. Pauly. Editors. (2014) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=126141 on 2014-11-22
+## 2       WoRMS (2014). Salmo (Osmerus) Linnaeus, 1758. In: Froese, R. and D. Pauly. Editors. (2014) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=154470 on 2014-11-22
+## 3                                                              Bailly, N. (2014). Salmo (Osmerus) eperlanus. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=154471 on 2014-11-22
+## 4 Bailly, N. (2014). Salmo abanticus Tortonese, 1954. In: Froese, R. and D. Pauly. Editors. (2014) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=712455 on 2014-11-22
+## 5     Bailly, N. (2014). Salmo albula Linnaeus, 1758. In: Froese, R. and D. Pauly. Editors. (2014) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=305943 on 2014-11-22
+## 6    Bailly, N. (2014). Salmo albus Bonnaterre, 1788. In: Froese, R. and D. Pauly. Editors. (2014) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=305944 on 2014-11-22
 ##                                        lsid isMarine isBrackish
 ## 1 urn:lsid:marinespecies.org:taxname:126141        1          0
 ## 2 urn:lsid:marinespecies.org:taxname:154470     <NA>       <NA>
@@ -349,12 +340,12 @@ head( worms_children(ids=106135) )
 ## 5 Maxillopoda Sessilia Pachylasmatidae Hexelasma
 ## 6 Maxillopoda Sessilia Pachylasmatidae Hexelasma
 ##                                                                                                                                                                                     citation
-## 1             WoRMS (2014). Hexelasma alearum Hoek, 1913. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733743 on 2014-11-21
-## 2       WoRMS (2014). Hexelasma americanum Pilsbry, 1916. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=106242 on 2014-11-21
-## 3            WoRMS (2014). Hexelasma arafurae Hoek, 1913. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733262 on 2014-11-21
-## 4    WoRMS (2014). Hexelasma aucklandicum (Hector, 1888). Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733744 on 2014-11-21
-## 5           WoRMS (2014). Hexelasma aureolum Jones, 2000. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733263 on 2014-11-21
-## 6 WoRMS (2014). Hexelasma brintoni (Newman & Ross, 1971). Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733264 on 2014-11-21
+## 1             WoRMS (2014). Hexelasma alearum Hoek, 1913. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733743 on 2014-11-22
+## 2       WoRMS (2014). Hexelasma americanum Pilsbry, 1916. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=106242 on 2014-11-22
+## 3            WoRMS (2014). Hexelasma arafurae Hoek, 1913. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733262 on 2014-11-22
+## 4    WoRMS (2014). Hexelasma aucklandicum (Hector, 1888). Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733744 on 2014-11-22
+## 5           WoRMS (2014). Hexelasma aureolum Jones, 2000. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733263 on 2014-11-22
+## 6 WoRMS (2014). Hexelasma brintoni (Newman & Ross, 1971). Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733264 on 2014-11-22
 ##                                        lsid isMarine isBrackish
 ## 1 urn:lsid:marinespecies.org:taxname:733743        1       <NA>
 ## 2 urn:lsid:marinespecies.org:taxname:106242        1       <NA>
