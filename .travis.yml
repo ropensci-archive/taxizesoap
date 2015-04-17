@@ -1,11 +1,9 @@
-language: c
-script: "./travis-tool.sh run_tests"
-before_script:
-- curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
-- chmod 755 ./travis-tool.sh
-- "./travis-tool.sh bootstrap"
-- "./travis-tool.sh install_deps"
-- "./travis-tool.sh install_github sckott/XMLSchema sckott/SSOAP"
+language: r
+
+r_github_packages:
+	- sckott/XMLSchema
+	- sckott/SSOAP
+
 notifications:
   slack:
     secure: JtkCANJT8IbSySdC9sUsCiITjkhxtBFhRjISffN7YBF1GCaajzyrKSQ6ZgtNsTeKbmtaXMqDXQW/kjB7r1rYEQovjo8mj1d/Ck6cmWc8AfqLknTz8eEd4gQIDRCTdfrnEJY+sL0zBeFhA1ywqOAEa9xSN1UzE2e1FPuLnr8C1yQ=
