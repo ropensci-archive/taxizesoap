@@ -3,6 +3,8 @@ taxizesoap
 
 [![Build Status](https://api.travis-ci.org/ropensci/taxizesoap.png?branch=master)](https://travis-ci.org/ropensci/taxizesoap)
 
+__BEWARE:__ `XMLSchema` - a dependency for this package, is not working with R v 3.2 or greater. We're working on a fix...Follow [issue #4](https://github.com/ropensci/taxizesoap/issues/4) for updates.
+
 `taxizesoap` is an extension to [taxize](https://github.com/ropensci/taxize), but for data sources that use SOAP data transfer protocol, which is hard to support in R. This package won't go on CRAN.
 
 Most functions in this package are different from those in `taxize`, but there are some of the same (e.g,. `classification()`). In this package, where a function is named the same as in `taxize`, I've added a `_s` at the end of the function representing the version of that function in the `taxizesoap` package. This is to avoid confounding effects when both packages are loaded at the same time.
