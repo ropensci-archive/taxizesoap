@@ -7,6 +7,7 @@
 #'
 #' @importFrom methods is slot slotNames
 #' @importFrom stats na.omit
+#' @import plyr data.table httr XML
 #' @name taxizesoap-package
 #' @aliases taxizesoap
 #' @docType package

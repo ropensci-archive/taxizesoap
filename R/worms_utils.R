@@ -1,8 +1,8 @@
 #' Search World Register of Marine Species (WoRMS)
-#' 
-#' Paging in \code{worms_*} functions: Where available, you an use the \code{offset} parameter to 
-#' give the first record to return. The max records to return is 50, which you can not change. 
-#' If there are more than 50 records, you can do the same request, but set \code{offset=51}, 
+#'
+#' Paging in \code{worms_*} functions: Where available, you an use the \code{offset} parameter to
+#' give the first record to return. The max records to return is 50, which you can not change.
+#' If there are more than 50 records, you can do the same request, but set \code{offset=51},
 #' for example.
 #'
 #' WORMS has a SOAP API. We store the machine generated API specification in the package as the
@@ -74,19 +74,7 @@ NULL
 #' @param wsdl_url URL for the WORMS SOAP WSDL file
 #' @param ... Further args passed on to \code{genSOAPClientInterface}
 #' @return Returns invisibly a S4 object holding all functions to interact with WORMS.
-#' @examples \dontrun{
-#' # You can generate your own interface to WORMS functions
-#' out <- worms_gen_iface()
-#' out
-#' 
-#' # Then access them directly
-#' out@@functions$matchAphiaRecordsByNames
-#' 
-#' # Or pass to the taxize functions in the iface parameter
-#' head(worms_records(scientific = "Salmo", iface = out))
-#' }
-worms_gen_iface <- function(wsdl_url="http://www.marinespecies.org/aphia.php?p=soap&wsdl=1", ...)
-{
+worms_gen_iface <- function(wsdl_url="http://www.marinespecies.org/aphia.php?p=soap&wsdl=1", ...) {
   w <- processWSDL(wsdl_url)
   genSOAPClientInterface(, w, ...)
 }
@@ -106,17 +94,20 @@ get_uri <- function(x, y){
          dyntaxa=sprintf('http://www.dyntaxa.se/Taxon/Info/%s?changeRoot=True', y),
          fishbase=sprintf('http://www.fishbase.org/summary/%s', y),
          iucn=sprintf('http://www.iucnredlist.org/details/%s/0', y),
-         lsid=NA,
+         lsid=NA
   )
 }
 
 parse_data <- function(x){
-  do.call(rbind, lapply(x, function(y) if(length(y)==1){
-    data.frame(inputid=y[[1]]$AphiaID, unclass(y[[1]]), stringsAsFactors = FALSE)
+  do.call("rbind.fill", lapply(x, function(y) if (length(y) == 1) {
+    data.frame(inputid = y[[1]]$AphiaID, unclass(y[[1]]), stringsAsFactors = FALSE)
   } else {
-    do.call(rbind, lapply(y, function(z) data.frame(inputid=slot(y[[1]], 'AphiaID'), t(sapply(slotNames(z), function(x) slot(z, x))), stringsAsFactors = FALSE)))
-  }
-  ))
+    do.call("rbind.fill", lapply(y, function(z) {
+      data.frame(unclass(z), stringsAsFactors = FALSE)
+    })
+    )
+  })
+  )
 }
 
 parse_data_byname <- function(x){

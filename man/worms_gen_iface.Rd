@@ -19,17 +19,4 @@ Returns invisibly a S4 object holding all functions to interact with WORMS.
 \description{
 Generate WORMS function interface.
 }
-\examples{
-\dontrun{
-# You can generate your own interface to WORMS functions
-out <- worms_gen_iface()
-out
-
-# Then access them directly
-out@functions$matchAphiaRecordsByNames
-
-# Or pass to the taxize functions in the iface parameter
-head(worms_records(scientific = "Salmo", iface = out))
-}
-}
 

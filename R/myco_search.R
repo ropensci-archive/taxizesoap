@@ -1,6 +1,5 @@
 #' Search Mycobank
 #'
-#' @import plyr data.table httr XML
 #' @export
 #' @param layout (character) One of 'mbwservice' or 'mycobank'. There is no explanation of what
 #' these different layouts are. Help anyone?
@@ -86,18 +85,22 @@ myco_search <- function(layout='mbwservice', filter="", limit=100, ...) {
   dat <- lapply(nodes, function(x) {
     tmp <- xmlToList(x, simplify = FALSE)
     tmp[sapply(tmp, is.null)] <- NA
-    c(tmp[!names(tmp) == 'U3733'], parse_links(tmp$u3733))
+    c(tmp[!names(tmp) == 'u3733'], parse_links(tmp$u3733))
   })
-  df <- data.frame(rbindlist(dat), stringsAsFactors = FALSE)
+  df <- setDF(rbindlist(dat, fill = TRUE, use.names = TRUE))
   names(df) <- gsub("_$", "", tolower(names(df)))
   if (layout == 'mbwservice') df <- plyr::rename(df, c('e3787' = 'summary'))
   return( df )
 }
 
 parse_links <- function(y){
-  res <- htmlParse(y)
-  namez <- xpathSApply(res, "//name", xmlValue)
-  urls <- as.list(xpathSApply(res, "//url", xmlValue))
-  names(urls) <- tolower(namez)
-  data.frame(urls, stringsAsFactors = FALSE)
+  if (is.null(y) || is.na(y)) {
+    NULL
+  } else {
+    res <- htmlParse(y)
+    namez <- xpathSApply(res, "//name", xmlValue)
+    urls <- as.list(xpathSApply(res, "//url", xmlValue))
+    names(urls) <- tolower(namez)
+    data.frame(urls, stringsAsFactors = FALSE)
+  }
 }

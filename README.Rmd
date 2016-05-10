@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 
 [![Build Status](https://api.travis-ci.org/ropensci/taxizesoap.png?branch=master)](https://travis-ci.org/ropensci/taxizesoap)
 
-__BEWARE:__ `XMLSchema` - a dependency for this package, is not working with R v 3.2 or greater. We're working on a fix...Follow [issue #4](https://github.com/ropensci/taxizesoap/issues/4) for updates.
+__BEWARE:__  R v3.2 or greater required. We're working on a fix...Follow [issue #4](https://github.com/ropensci/taxizesoap/issues/4) for updates.
 
 `taxizesoap` is an extension to [taxize](https://github.com/ropensci/taxize), but for data sources that use SOAP data transfer protocol, which is hard to support in R. This package won't go on CRAN.
 
@@ -64,6 +64,14 @@ Most functions in this package are different from those in `taxize`, but there a
 ## Install taxizesoap
 
 You'll need `XMLSchema` and `SSOAP`. I have versions of these packages on my personal GitHub account that seem to work better than the versions on Omegahat, and from there you can take advantage of the easy `install_github()`.
+
+Get dependencies that aren't on CRAN - this should work:
+
+```{r eval=FALSE}
+install.packages(c("XMLSchema", "SSOAP"), repos = c("http://packages.ropensci.org", "http://cran.rstudio.com"))
+```
+
+If it doesn't work, try:
 
 ```{r eval=FALSE}
 install.packages("devtools")

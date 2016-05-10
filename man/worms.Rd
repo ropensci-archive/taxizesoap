@@ -4,9 +4,9 @@
 \alias{worms}
 \title{Search World Register of Marine Species (WoRMS)}
 \description{
-Paging in \code{worms_*} functions: Where available, you an use the \code{offset} parameter to 
-give the first record to return. The max records to return is 50, which you can not change. 
-If there are more than 50 records, you can do the same request, but set \code{offset=51}, 
+Paging in \code{worms_*} functions: Where available, you an use the \code{offset} parameter to
+give the first record to return. The max records to return is 50, which you can not change.
+If there are more than 50 records, you can do the same request, but set \code{offset=51},
 for example.
 }
 \details{

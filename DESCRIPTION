@@ -10,7 +10,7 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 LazyData: yes
 Depends:
-    R(>= 2.10.0),
+    R (>= 3.2),
     SSOAP (>= 0.91-0)
 Imports:
     methods,
@@ -23,6 +23,8 @@ Imports:
 Suggests:
     roxygen2 (>= 5.0.1),
     XMLSchema (>= 0.8.0)
+Enhances:
+    taxize
 Remotes: omegahat/XMLSchema,
     sckott/SSOAP
 RoxygenNote: 5.0.1

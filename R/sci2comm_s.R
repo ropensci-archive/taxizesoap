@@ -18,7 +18,8 @@
 #' sci2comm_s(get_wormsid('Squatina squatina'))
 #'
 #' # Don't simplify returned
-#' sci2comm_s(get_tsn('Helianthus annuus'), simplify=FALSE)
+#' # library("taxize")
+#' # sci2comm_s(get_tsn('Helianthus annuus'), simplify=FALSE)
 #' }
 #' @rdname sci2comm_s
 sci2comm_s <- function(...){

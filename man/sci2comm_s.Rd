@@ -38,7 +38,8 @@ sci2comm_s(scinames='Squatina squatina', db='worms')
 sci2comm_s(get_wormsid('Squatina squatina'))
 
 # Don't simplify returned
-sci2comm_s(get_tsn('Helianthus annuus'), simplify=FALSE)
+# library("taxize")
+# sci2comm_s(get_tsn('Helianthus annuus'), simplify=FALSE)
 }
 }
 \author{

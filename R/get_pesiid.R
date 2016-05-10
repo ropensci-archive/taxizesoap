@@ -2,7 +2,7 @@
 #'
 #' Retrieve the PESI id of a taxon.
 #'
-#' @import plyr
+#' @export
 #' @param searchterm character; A vector of common or scientific names.
 #' @param searchtype character; One of 'scientific' or 'common', or any unique abbreviation
 #' @param accepted logical; If TRUE (default), removes names that are not accepted valid names
@@ -19,7 +19,6 @@
 #'
 #' @seealso \code{\link[taxizesoap]{classification_s}}
 #'
-#' @export
 #' @examples \dontrun{
 #' get_pesiid(searchterm = "Salvelinus")
 #' get_pesiid(c("Salvelinus fontinalis","Pomacentrus brachialis"))
