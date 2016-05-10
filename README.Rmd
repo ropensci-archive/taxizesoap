@@ -59,28 +59,30 @@ Most functions in this package are different from those in `taxize`, but there a
 
 **Note:** Euro+Med is available through PESI.
 
+## R versions
+
+We previously had problems with this package, where [it didn't work on R > 3.2](https://github.com/ropensci/taxizesoap/issues/4#issuecomment-218175649). But now
+those problems seem to have been solved. let us know if you run into any more problems.
+
 ## Install taxizesoap
 
-You'll need `XMLSchema` and `SSOAP`. I have versions of these packages on my personal GitHub account that seem to work better than the versions on Omegahat, and from there you can take advantage of the easy `install_github()`.
+```{r eval=FALSE}
+devtools::install_github("ropensci/taxizesoap")
+```
 
-Get dependencies that aren't on CRAN - this should work:
+That should install two dependencies not on CRAN (`XMLSchema`, `SSOAP`). If they aren't installed
+correctly for you, try installing from our Drat repo.
 
 ```{r eval=FALSE}
 install.packages(c("XMLSchema", "SSOAP"), repos = c("http://packages.ropensci.org", "http://cran.rstudio.com"))
 ```
 
-If it doesn't work, try:
+If that doesn't work, try insatlling from GitHub:
 
 ```{r eval=FALSE}
 install.packages("devtools")
 devtools::install_github("omegahat/XMLSchema")
 devtools::install_github("sckott/SSOAP")
-```
-
-Then install `taxizesoap`
-
-```{r eval=FALSE}
-devtools::install_github("ropensci/taxizesoap")
 ```
 
 Load the package

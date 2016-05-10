@@ -5,8 +5,6 @@ taxizesoap
 
 [![Build Status](https://api.travis-ci.org/ropensci/taxizesoap.png?branch=master)](https://travis-ci.org/ropensci/taxizesoap)
 
-__BEWARE:__ `XMLSchema` - a dependency for this package, is not working with R v 3.2 or greater. We're working on a fix...Follow [issue #4](https://github.com/ropensci/taxizesoap/issues/4) for updates.
-
 `taxizesoap` is an extension to [taxize](https://github.com/ropensci/taxize), but for data sources that use SOAP data transfer protocol, which is hard to support in R. This package won't go on CRAN.
 
 Most functions in this package are different from those in `taxize`, but there are some of the same (e.g,. `classification()`). In this package, where a function is named the same as in `taxize`, I've added a `_s` at the end of the function representing the version of that function in the `taxizesoap` package. This is to avoid confounding effects when both packages are loaded at the same time.
@@ -54,22 +52,33 @@ Most functions in this package are different from those in `taxize`, but there a
 
 **Note:** Euro+Med is available through PESI.
 
+## R versions
+
+We previously had problems with this package, where [it didn't work on R > 3.2](https://github.com/ropensci/taxizesoap/issues/4#issuecomment-218175649). But now
+those problems seem to have been solved. let us know if you run into any more problems.
+
 ## Install taxizesoap
 
-You'll need `XMLSchema` and `SSOAP`. I have versions of these packages on my personal GitHub account that seem to work better than the versions on Omegahat, and from there you can take advantage of the easy `install_github()`.
+
+```r
+devtools::install_github("ropensci/taxizesoap")
+```
+
+That should install two dependencies not on CRAN (`XMLSchema`, `SSOAP`). If they aren't installed
+correctly for you, try installing from our Drat repo.
+
+
+```r
+install.packages(c("XMLSchema", "SSOAP"), repos = c("http://packages.ropensci.org", "http://cran.rstudio.com"))
+```
+
+If that doesn't work, try insatlling from GitHub:
 
 
 ```r
 install.packages("devtools")
 devtools::install_github("omegahat/XMLSchema")
 devtools::install_github("sckott/SSOAP")
-```
-
-Then install `taxizesoap`
-
-
-```r
-devtools::install_github("ropensci/taxizesoap")
 ```
 
 Load the package
@@ -433,7 +442,7 @@ Search for a _Candida boidinii_
 
 ```r
 myco_search(filter='Name CONTAINS "Candida boidinii"')
-#>     x_id       creation_date    last_change_date             name  epithet
+#>      _id       creation_date    last_change_date             name  epithet
 #> 1 105080 03/02/2004 08:10:28 29/03/2016 15:44:03 Candida boidinii boidinii
 #> 2 175286 25/12/2004 17:43:38 29/03/2016 15:46:49 Candida boidinii boidinii
 #>      authors nameyear mycobanknr literatureremarks literaturereferencetype
@@ -445,9 +454,6 @@ myco_search(filter='Name CONTAINS "Candida boidinii"')
 #>                                                                               e3787
 #> 1 Candida boidinii C. Ramírez, Microbiología Española 6 (3): 251 (1953) [MB#344025]
 #> 2                 Candida boidinii C. Ramírez, Revue Mycol.: 100 (1954) [MB#294021]
-#>                                                                                                                                                                                                                                                                                                                                                                                     u3733
-#> 1 <Link><Name>Wikipedia</Name><Url>http://en.wikipedia.org/wiki/Candida boidinii</Url></Link><Link><Name>Wikispecies</Name><Url>http://species.wikipedia.org/wiki/Candida boidinii</Url></Link><Link><Name>Wikimedia</Name><Url>http://commons.wikipedia.org/wiki/Candida boidinii</Url></Link><Link><Name>Google</Name><Url>http://www.google.com/search?q=Candida boidinii</Url></Link>
-#> 2 <Link><Name>Wikipedia</Name><Url>http://en.wikipedia.org/wiki/Candida boidinii</Url></Link><Link><Name>Wikispecies</Name><Url>http://species.wikipedia.org/wiki/Candida boidinii</Url></Link><Link><Name>Wikimedia</Name><Url>http://commons.wikipedia.org/wiki/Candida boidinii</Url></Link><Link><Name>Google</Name><Url>http://www.google.com/search?q=Candida boidinii</Url></Link>
 #>                                       wikipedia
 #> 1 http://en.wikipedia.org/wiki/Candida boidinii
 #> 2 http://en.wikipedia.org/wiki/Candida boidinii
