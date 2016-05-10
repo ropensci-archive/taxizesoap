@@ -1,6 +1,5 @@
 Package: taxizesoap
-Description: Taxonomic information from around the web, from SOAP
-    data sources.
+Description: Taxonomic information from around the SOAP web
 Title: Taxonomic information from around the SOAP web.
 Version: 0.1.1.9100
 Date: 2016-05-10
@@ -14,14 +13,16 @@ Depends:
     R(>= 2.10.0),
     SSOAP (>= 0.91-0)
 Imports:
+    methods,
+    stats,
     XML,
-    RCurl (>= 1.6),
+    RCurl (>= 1.95.4.8),
     plyr,
-    httr (>= 0.2),
+    httr (>= 1.1.0),
     data.table
 Suggests:
-    roxygen2,
-    XMLSchema (>= 0.8-0)
+    roxygen2 (>= 5.0.1),
+    XMLSchema (>= 0.8.0)
 Remotes: omegahat/XMLSchema,
     sckott/SSOAP
 RoxygenNote: 5.0.1

@@ -5,6 +5,8 @@
 #' World Register of Marine Species (WoRMS) \tab worms_ \cr
 #' }
 #'
+#' @importFrom methods is slot slotNames
+#' @importFrom stats na.omit
 #' @name taxizesoap-package
 #' @aliases taxizesoap
 #' @docType package
