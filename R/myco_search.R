@@ -74,24 +74,23 @@
 #' myco_search(filter='MycoBankNr_="344025"', config=verbose())
 #' }
 
-myco_search <- function(layout='mbwservice', filter="", limit=100, ...)
-{
+myco_search <- function(layout='mbwservice', filter="", limit=100, ...) {
   layout <- switch(layout, mycobank = '14682616000000161', mbwservice = '14682616000003562')
   url <- "http://www.mycobank.org/Services/Generic/SearchService.svc/rest/xml"
-  args <- tsc(list(layout=layout, filter=filter, limit=limit))
-  res <- GET(url, query=args, ...)
+  args <- tsc(list(layout = layout, filter = filter, limit = limit))
+  res <- GET(url, query = args, ...)
   stop_for_status(res)
-  tt <- content(res, "text")
+  tt <- content(res, "text", encoding = "UTF-8")
   parsed <- xmlParse(tt)
   nodes <- xpathSApply(parsed, "//Taxon")
-  dat <- lapply(nodes, function(x){
-    tmp <- xmlToList(x, simplify=FALSE)
+  dat <- lapply(nodes, function(x) {
+    tmp <- xmlToList(x, simplify = FALSE)
     tmp[sapply(tmp, is.null)] <- NA
-    c(tmp[!names(tmp) == 'U3733'], parse_links(tmp$U3733))
+    c(tmp[!names(tmp) == 'U3733'], parse_links(tmp$u3733))
   })
   df <- data.frame(rbindlist(dat), stringsAsFactors = FALSE)
   names(df) <- gsub("_$", "", tolower(names(df)))
-  if(layout=='mbwservice') df <- plyr::rename(df, c('e3787'='summary'))
+  if (layout == 'mbwservice') df <- plyr::rename(df, c('e3787' = 'summary'))
   return( df )
 }
 

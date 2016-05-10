@@ -1,5 +1,14 @@
 taxizesoap
-=======
+==========
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
 
 [![Build Status](https://api.travis-ci.org/ropensci/taxizesoap.png?branch=master)](https://travis-ci.org/ropensci/taxizesoap)
 
@@ -58,7 +67,8 @@ You'll need `XMLSchema` and `SSOAP`. I have versions of these packages on my per
 
 ```{r eval=FALSE}
 install.packages("devtools")
-devtools::install_github(c("sckott/XMLSchema", "sckott/SSOAP"))
+devtools::install_github("omegahat/XMLSchema")
+devtools::install_github("sckott/SSOAP")
 ```
 
 Then install `taxizesoap`
