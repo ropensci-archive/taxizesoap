@@ -10,7 +10,7 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 LazyData: yes
 Depends:
-    R (>= 3.2),
+    R (>= 3.1.2),
     SSOAP (>= 0.91-0)
 Imports:
     methods,
