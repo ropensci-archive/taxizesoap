@@ -1,5 +1,5 @@
 #' Common names from WoRMS ID
-#' 
+#'
 #' @export
 #' @template worms_id
 #' @examples \dontrun{
@@ -9,13 +9,10 @@
 #' worms_common(ids=160281)
 #' worms_common(ids=c(1080,22388,160281,123080,22388))
 #' }
-worms_common <- function(ids=NULL, opts=NULL, iface=NULL, ...)
-{
+worms_common <- function(ids=NULL, opts=NULL, iface=NULL, ...) {
   server <- 'http://www.marinespecies.org/aphia.php?p=soap'
-  if(!is.null(iface)) worms_iface <- iface
+  if (!is.null(iface)) worms_iface <- iface
   fxn <- worms_get_fxn('getAphiaVernacularsByID')
-  res <- lapply(ids, fxn, server = server, .opts = opts, .convert=FALSE)
-#   names(res) <- ids
-  do.call(rbind, Map(worms_parse_xml, res, aphiaid=ids))
-#   parse_data_byname(res)
+  res <- lapply(ids, fxn, server = server, .opts = opts, .convert = FALSE)
+  do.call("rbind.fill", Map(worms_parse_xml, res, aphiaid = ids))
 }

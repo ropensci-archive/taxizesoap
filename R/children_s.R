@@ -6,18 +6,19 @@
 #' @param ... Further args passed on to \code{worms_children}.
 #' @return A named list of data.frames with the children names of every supplied taxa.
 #' You get an NA if there was no match in the database.
+#' @details In \pkg{taxize} the equivalent function \code{taxize} accepts names
+#' and taxonomic identifiers. This function only accepts names for now
 #' @examples \dontrun{
 #' children_s("Aatolana", db = 'worms')
 #' }
 
-children_s <- function(...){
+children_s <- function(...) {
   UseMethod("children_s")
 }
 
 #' @export
 #' @rdname children_s
-children_s.default <- function(x, db = NULL, ...)
-{
+children_s.default <- function(x, db = NULL, ...) {
   if (is.null(db))
     stop("Must specify db value!")
 
@@ -31,18 +32,22 @@ children_s.default <- function(x, db = NULL, ...)
 
 #' @export
 #' @rdname children_s
-children_s.wormsid <- function(x,  db = NULL, ...) {
-  fun <- function(y){
+children_s.wormsid <- function(x, db = NULL, ...) {
+  fun <- function(y, ...) {
     # return NA if NA is supplied
-    if(is.na(y)){
-      out <- NA
+    if (is.na(y)) {
+      NA
     } else {
       out <- worms_children(ids = y, ...)
-      out <- out[,c("AphiaID","scientificname","rank","status","valid_AphiaID","valid_name","kingdom","phylum","class","order","family","genus")]
+      if (NROW(out[[1]]) == 0) {
+        out[[1]]
+      } else {
+        out[[1]][, c("AphiaID","scientificname","rank","status","valid_AphiaID",
+                     "valid_name","kingdom","phylum","class","order","family","genus")]
+      }
     }
-    return(out)
   }
-  out <- lapply(x, fun)
+  out <- lapply(x, fun, ...)
   class(out) <- 'children_s'
   attr(out, 'db') <- 'worms'
   return(out)

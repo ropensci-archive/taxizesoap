@@ -112,28 +112,30 @@ parse_data <- function(x){
 
 parse_data_byname <- function(x){
   tt <- list()
-  for(i in seq_along(x)){
-    if(length(x[[i]])==1){
-      tt[[i]] <- data.frame(inputid=names(x)[i], unclass(x[[i]][[1]]), stringsAsFactors = FALSE)
+  for (i in seq_along(x)) {
+    if (length(x[[i]]) == 1) {
+      tt[[i]] <- data.frame(inputid = names(x)[i], unclass(x[[i]][[1]]), stringsAsFactors = FALSE)
     } else {
-      tt[[i]] <- do.call(rbind, lapply(x[[i]], function(z) data.frame(inputid=names(x)[i], unclass(z), stringsAsFactors = FALSE)))
+      tt[[i]] <- do.call(rbind, lapply(x[[i]], function(z) data.frame(inputid = names(x)[i], unclass(z), stringsAsFactors = FALSE)))
     }
   }
   do.call(rbind, tt)
 }
 
 
-worms_parse_xml <- function(z, aphiaid, which="getAphiaChildrenByID")
-{
-  which <- if(which %in% c('getAphiaChildrenByID','getAphiaRecords','getAphiaRecordsByNames','getAphiaRecordsByVernacular','getAphiaRecordsByDate','matchAphiaRecordsByNames')) '//item' else '//return'
+worms_parse_xml <- function(z, aphiaid, which = "getAphiaChildrenByID") {
+  which <- if (which %in% c('getAphiaChildrenByID','getAphiaRecords','getAphiaRecordsByNames','getAphiaRecordsByVernacular','getAphiaRecordsByDate','matchAphiaRecordsByNames')) '//item' else '//return'
   st <- xmlParse( z$content )
-  ns <- c(xmlns='xsi="http://www.w3.org/2001/XMLSchema-instance"')
+  ns <- c(xmlns = 'xsi="http://www.w3.org/2001/XMLSchema-instance"')
   nodes <- getNodeSet(st, which, namespaces = ns)
-  if(length(nodes) == 0)
+  if (length(nodes) == 0) {
     nodes <- getNodeSet(st, '//return', namespaces = ns)
+  }
   out <- lapply(nodes, function(x){
-    if(!is.null(xmlToList(x)[['nil']])){ data.frame(noresults=NA, stringsAsFactors = FALSE) } else {
-      if(length(getNodeSet(x, "item")) == 0){
+    if (!is.null(xmlToList(x)[['nil']])) {
+      data.frame(NULL)
+    } else {
+      if (length(getNodeSet(x, "item")) == 0) {
         extract_it(x)
       } else {
         tmp <- getNodeSet(x, 'item')
@@ -141,9 +143,13 @@ worms_parse_xml <- function(z, aphiaid, which="getAphiaChildrenByID")
       }
     }
   })
-  df <- data.frame(inputid=aphiaid, do.call(rbind.fill, out), stringsAsFactors = FALSE)
-  df$.attrs <- NULL
-  df
+  if (all(sapply(out, NROW) == 0)) {
+    data.frame(NULL)
+  } else {
+    df <- data.frame(inputid = aphiaid, do.call(rbind.fill, out), stringsAsFactors = FALSE)
+    df$.attrs <- NULL
+    df
+  }
 }
 
 extract_it <- function(x){

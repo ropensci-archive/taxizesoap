@@ -37,32 +37,30 @@
 #' worms_records(startdate='2014-06-01T00:00:00', enddate='2014-06-02T00:00:00')
 #' worms_records(ids=1080)
 #' worms_records(extids=6830, type='ncbi')
-#' 
+#'
 #' worms_records(scientific="Holothuria edulis")
 #' worms_records(scientific="Holothuria edulis", fuzzy=TRUE)
 #' worms_records(scientific="Holothuria (Halodeima) edulis")
-#' 
+#'
 #' worms_records(scientific='Scotoplanes')
-#' 
+#'
 #' worms_records(scientific='Salmo', offset=51)
 #' }
 
 worms_records <- function(scientific=NULL, common=NULL, ids=NULL, extids=NULL, like=NULL, type=NULL,
-  fuzzy=FALSE, marine_only=1, offset=NULL, startdate=NULL, enddate=NULL, opts=NULL, iface=NULL, ...)
-{
+  fuzzy=FALSE, marine_only=1, offset=NULL, startdate=NULL, enddate=NULL, opts=NULL, iface=NULL, ...) {
   server <- 'http://www.marinespecies.org/aphia.php?p=soap'
-  if(!is.null(iface)) worms_iface <- iface
-  endpt <- if(!is.null(common)){
+  if (!is.null(iface)) worms_iface <- iface
+  endpt <- if (!is.null(common)) {
     'getAphiaRecordsByVernacular'
-  } else if (!is.null(startdate)|!is.null(enddate)) {
+  } else if (!is.null(startdate) || !is.null(enddate)) {
     'getAphiaRecordsByDate'
-  } else if(!is.null(extids)) {
+  } else if (!is.null(extids)) {
     'getAphiaRecordByExtID'
-  } else if(!is.null(ids)){
+  } else if (!is.null(ids)) {
     'getAphiaRecordByID'
   } else {
-#     if(length(scientific) > 1) 'getAphiaRecordsByNames' else 'getAphiaRecords'
-    if(fuzzy) 'matchAphiaRecordsByNames' else 'getAphiaRecords'
+    if (fuzzy) 'matchAphiaRecordsByNames' else 'getAphiaRecords'
   }
   fxn <- worms_get_fxn(endpt)
   res <- switch(endpt,
@@ -74,6 +72,9 @@ worms_records <- function(scientific=NULL, common=NULL, ids=NULL, extids=NULL, l
     getAphiaRecordByID = lapply(ids, fxn, server = server, .opts = opts, .convert=FALSE, ...),
     getAphiaRecordByExtID = lapply(extids, fxn, type = type, server = server, .opts = opts, .convert=FALSE, ...)
   )
-  iter <- switch(endpt, getAphiaRecords=scientific, getAphiaRecordsByNames=scientific, getAphiaRecordsByVernacular=common, getAphiaRecordsByDate=startdate, getAphiaRecordByID=ids, getAphiaRecordByExtID=extids, matchAphiaRecordsByNames=scientific)
-  do.call(rbind.fill, Map(worms_parse_xml, res, aphiaid=iter, which=endpt))
+  iter <- switch(endpt, getAphiaRecords = scientific, getAphiaRecordsByNames = scientific,
+                 getAphiaRecordsByVernacular = common, getAphiaRecordsByDate = startdate,
+                 getAphiaRecordByID = ids, getAphiaRecordByExtID = extids,
+                 matchAphiaRecordsByNames = scientific)
+  do.call("rbind.fill", Map(worms_parse_xml, res, aphiaid = iter, which = endpt))
 }

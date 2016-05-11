@@ -26,6 +26,10 @@ You get an NA if there was no match in the database.
 \description{
 Retrieve immediate children taxa for a given taxon name or ID.
 }
+\details{
+In \pkg{taxize} the equivalent function \code{taxize} accepts names
+and taxonomic identifiers. This function only accepts names for now
+}
 \examples{
 \dontrun{
 children_s("Aatolana", db = 'worms')

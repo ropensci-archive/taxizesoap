@@ -2,7 +2,7 @@
 % Please edit documentation in R/worms_children.R
 \name{worms_children}
 \alias{worms_children}
-\title{Children search of WoRMS data.}
+\title{Children search of WoRMS data}
 \usage{
 worms_children(ids = NULL, offset = NULL, marine_only = 1, opts = NULL,
   iface = NULL, ...)
@@ -25,15 +25,23 @@ then pass it into any \code{worms_*} function. in the \code{iface} parameter.}
 
 \item{...}{Further args passed on to \code{SSOAP::.SOAP}.}
 }
+\value{
+A list of data.frame's, named by the input Aphia ids
+}
 \description{
-Children search of WoRMS data.
+Children search of WoRMS data
 }
 \examples{
 \dontrun{
 worms_children(ids=106135)
 worms_children(ids=c(106135,159283))
 out <- worms_children(ids=c(106135,159283))
-head(out)
+lapply(out, head)
+
+# to bind outputs together from multiple taxa
+do.call(rbind, out)
+## or with plyr::rbind.fill
+do.call(rbind.fill, out)
 }
 }
 
