@@ -1,8 +1,8 @@
 Package: taxizesoap
 Title: Taxonomic Information from Around the Soap Web
 Description: Taxonomic information from around the SOAP web.
-Version: 0.1.1.9240
-Date: 2016-05-11
+Version: 0.1.1.9800
+Date: 2016-06-24
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/taxizesoap
 BugReports: https://github.com/ropensci/taxizesoap/issues
@@ -22,7 +22,8 @@ Imports:
     data.table
 Suggests:
     roxygen2 (>= 5.0.1),
-    XMLSchema (>= 0.8.0)
+    XMLSchema (>= 0.8.0),
+    testthat
 Enhances:
     taxize
 Remotes: omegahat/XMLSchema,

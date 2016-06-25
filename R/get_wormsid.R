@@ -46,7 +46,7 @@ get_wormsid <- function(searchterm, searchtype = "scientific", accepted = TRUE, 
                         scientific=worms_records(scientific = x),
                         common=worms_records(common = x)))
 
-    if("noresults" %in% names(worms_df)){
+    if (NROW(worms_df) == 0) {
       wormsid <- NA
       att <- "not found"
     } else {

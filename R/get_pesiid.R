@@ -46,7 +46,7 @@ get_pesiid <- function(searchterm, searchtype = "scientific", accepted = TRUE, a
                                          scientific=pesi_records(scientific = x),
                                          common=pesi_records(common = x)))
 
-    if(is.null(pesi_df)){
+    if (is.null(pesi_df) || NROW(pesi_df) == 0) {
       pesiid <- NA
       att <- "not found"
     } else {
