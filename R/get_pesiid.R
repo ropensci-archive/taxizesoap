@@ -105,7 +105,7 @@ get_pesiid <- function(searchterm, searchtype = "scientific", accepted = TRUE, a
           } else {
             pesiid <- NA
             mssg(verbose, "\nReturned 'NA'!\n\n")
-            att <- 'not found'
+            att <- 'invalid user input'
           }
         } else {
           pesiid <- NA
