@@ -109,7 +109,7 @@ get_wormsid <- function(searchterm, searchtype = "scientific", accepted = TRUE, 
           } else {
             wormsid <- NA
             mssg(verbose, "\nReturned 'NA'!\n\n")
-            att <- 'not found'
+            att <- 'invalid user input'
           }
         } else {
           wormsid <- NA
