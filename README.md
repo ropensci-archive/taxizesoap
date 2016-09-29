@@ -230,12 +230,12 @@ head( worms_records(scientific=c('Salmo','Aphanius')) )
 #> 5 Salmoniformes Salmonidae Salmo
 #> 6 Salmoniformes Salmonidae Salmo
 #>                                                                                                                                                                                                                                        citation
-#> 1           Bailly, N. (2014). Salmo Linnaeus, 1758. In: Froese, R. and D. Pauly. Editors. (2016). FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=126141 on 2016-05-10
-#> 2                          WoRMS (2015). Salmo (Osmerus). In: Froese, R. and D. Pauly. Editors. (2015) FishBase. Accessed through:  World Register of Marine Species at http://marinespecies.org/aphia.php?p=taxdetails&id=154470 on 2016-05-10
-#> 3                                                                  Bailly, N. (2015). Salmo (Osmerus) eperlanus. Accessed through:  World Register of Marine Species at http://marinespecies.org/aphia.php?p=taxdetails&id=154471 on 2016-05-10
-#> 4 Bailly, N. (2015). Salmo abanticus Tortonese, 1954. In: Froese, R. and D. Pauly. Editors. (2015) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=712455 on 2016-05-10
-#> 5     Bailly, N. (2015). Salmo albula Linnaeus, 1758. In: Froese, R. and D. Pauly. Editors. (2015) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=305943 on 2016-05-10
-#> 6    Bailly, N. (2015). Salmo albus Bonnaterre, 1788. In: Froese, R. and D. Pauly. Editors. (2015) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=305944 on 2016-05-10
+#> 1                          Bailly, N. (2014). Salmo. In: Froese, R. and D. Pauly. Editors. (2016). FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=126141 on 2016-09-29
+#> 2                          WoRMS (2015). Salmo (Osmerus). In: Froese, R. and D. Pauly. Editors. (2015) FishBase. Accessed through:  World Register of Marine Species at http://marinespecies.org/aphia.php?p=taxdetails&id=154470 on 2016-09-29
+#> 3                                                                  Bailly, N. (2015). Salmo (Osmerus) eperlanus. Accessed through:  World Register of Marine Species at http://marinespecies.org/aphia.php?p=taxdetails&id=154471 on 2016-09-29
+#> 4 Bailly, N. (2015). Salmo abanticus Tortonese, 1954. In: Froese, R. and D. Pauly. Editors. (2015) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=712455 on 2016-09-29
+#> 5     Bailly, N. (2015). Salmo albula Linnaeus, 1758. In: Froese, R. and D. Pauly. Editors. (2015) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=305943 on 2016-09-29
+#> 6    Bailly, N. (2015). Salmo albus Bonnaterre, 1788. In: Froese, R. and D. Pauly. Editors. (2015) FishBase. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=305944 on 2016-09-29
 #>                                        lsid isMarine isBrackish
 #> 1 urn:lsid:marinespecies.org:taxname:126141        1          0
 #> 2 urn:lsid:marinespecies.org:taxname:154470     <NA>       <NA>
@@ -276,69 +276,214 @@ Children search of WoRMS data.
 
 ```r
 head( worms_children(ids=106135) )
-#>   inputid AphiaID
-#> 1  106135  733743
-#> 2  106135  106242
-#> 3  106135  733262
-#> 4  106135  733744
-#> 5  106135  733263
-#> 6  106135  733264
-#>                                                             url
-#> 1 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733743
-#> 2 http://www.marinespecies.org/aphia.php?p=taxdetails&id=106242
-#> 3 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733262
-#> 4 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733744
-#> 5 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733263
-#> 6 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733264
-#>           scientificname             authority    rank     status
-#> 1      Hexelasma alearum            Hoek, 1913 Species unaccepted
-#> 2   Hexelasma americanum         Pilsbry, 1916 Species   accepted
-#> 3     Hexelasma arafurae            Hoek, 1913 Species   accepted
-#> 4 Hexelasma aucklandicum        (Hector, 1888) Species unaccepted
-#> 5     Hexelasma aureolum           Jones, 2000 Species   accepted
-#> 6     Hexelasma brintoni (Newman & Ross, 1971) Species   accepted
-#>                                unacceptreason valid_AphiaID
-#> 1                        generic reassignment        292966
-#> 2                                        <NA>        106242
-#> 3                                        <NA>        733262
-#> 4 transferred to Bathylasma (see Jones, 2000)        733253
-#> 5                                        <NA>        733263
-#> 6                                        <NA>        733264
-#>                valid_name       valid_authority  kingdom     phylum class
-#> 1      Bathylasma alearum        (Foster, 1978) Animalia Arthropoda  <NA>
-#> 2    Hexelasma americanum         Pilsbry, 1916 Animalia Arthropoda  <NA>
-#> 3      Hexelasma arafurae            Hoek, 1913 Animalia Arthropoda  <NA>
-#> 4 Bathylasma aucklandicum        (Hector, 1887) Animalia Arthropoda  <NA>
-#> 5      Hexelasma aureolum           Jones, 2000 Animalia Arthropoda  <NA>
-#> 6      Hexelasma brintoni (Newman & Ross, 1971) Animalia Arthropoda  <NA>
-#>      order          family     genus
-#> 1 Sessilia Pachylasmatidae Hexelasma
-#> 2 Sessilia Pachylasmatidae Hexelasma
-#> 3 Sessilia Pachylasmatidae Hexelasma
-#> 4 Sessilia Pachylasmatidae Hexelasma
-#> 5 Sessilia Pachylasmatidae Hexelasma
-#> 6 Sessilia Pachylasmatidae Hexelasma
-#>                                                                                                                                                                                       citation
-#> 1                   WoRMS (2015). Hexelasma alearum Hoek, 1913. Accessed through:  World Register of Marine Species at http://marinespecies.org/aphia.php?p=taxdetails&id=733743 on 2016-05-10
-#> 2 Southward, A. (2004). Hexelasma americanum Pilsbry, 1916. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=106242 on 2016-05-10
-#> 3              WoRMS (2015). Hexelasma arafurae Hoek, 1913. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733262 on 2016-05-10
-#> 4      WoRMS (2015). Hexelasma aucklandicum (Hector, 1888). Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733744 on 2016-05-10
-#> 5                 WoRMS (2015). Hexelasma aureolum Jones, 2000. Accessed through:  World Register of Marine Species at http://marinespecies.org/aphia.php?p=taxdetails&id=733263 on 2016-05-10
-#> 6   WoRMS (2015). Hexelasma brintoni (Newman & Ross, 1971). Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733264 on 2016-05-10
-#>                                        lsid isMarine isBrackish
-#> 1 urn:lsid:marinespecies.org:taxname:733743        1       <NA>
-#> 2 urn:lsid:marinespecies.org:taxname:106242        1       <NA>
-#> 3 urn:lsid:marinespecies.org:taxname:733262        1       <NA>
-#> 4 urn:lsid:marinespecies.org:taxname:733744        1       <NA>
-#> 5 urn:lsid:marinespecies.org:taxname:733263        1       <NA>
-#> 6 urn:lsid:marinespecies.org:taxname:733264        1       <NA>
-#>   isFreshwater isTerrestrial isExtinct match_type             modified
-#> 1         <NA>          <NA>      <NA>      exact 2013-07-03T10:40:33Z
-#> 2         <NA>          <NA>      <NA>      exact 2004-12-21T16:54:05Z
-#> 3         <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
-#> 4         <NA>          <NA>      <NA>      exact 2013-07-03T10:40:33Z
-#> 5         <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
-#> 6         <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
+#> $`106135`
+#>    inputid AphiaID
+#> 1   106135  733743
+#> 2   106135  106242
+#> 3   106135  883119
+#> 4   106135  733262
+#> 5   106135  733744
+#> 6   106135  733263
+#> 7   106135  733264
+#> 8   106135  733265
+#> 9   106135  733745
+#> 10  106135  733746
+#> 11  106135  733266
+#> 12  106135  733267
+#> 13  106135  733747
+#> 14  106135  733268
+#> 15  106135  733269
+#> 16  106135  733748
+#> 17  106135  733270
+#> 18  106135  733271
+#> 19  106135  733272
+#> 20  106135  733273
+#> 21  106135  733274
+#> 22  106135  535189
+#>                                                              url
+#> 1  http://www.marinespecies.org/aphia.php?p=taxdetails&id=733743
+#> 2  http://www.marinespecies.org/aphia.php?p=taxdetails&id=106242
+#> 3  http://www.marinespecies.org/aphia.php?p=taxdetails&id=883119
+#> 4  http://www.marinespecies.org/aphia.php?p=taxdetails&id=733262
+#> 5  http://www.marinespecies.org/aphia.php?p=taxdetails&id=733744
+#> 6  http://www.marinespecies.org/aphia.php?p=taxdetails&id=733263
+#> 7  http://www.marinespecies.org/aphia.php?p=taxdetails&id=733264
+#> 8  http://www.marinespecies.org/aphia.php?p=taxdetails&id=733265
+#> 9  http://www.marinespecies.org/aphia.php?p=taxdetails&id=733745
+#> 10 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733746
+#> 11 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733266
+#> 12 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733267
+#> 13 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733747
+#> 14 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733268
+#> 15 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733269
+#> 16 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733748
+#> 17 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733270
+#> 18 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733271
+#> 19 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733272
+#> 20 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733273
+#> 21 http://www.marinespecies.org/aphia.php?p=taxdetails&id=733274
+#> 22 http://www.marinespecies.org/aphia.php?p=taxdetails&id=535189
+#>             scientificname             authority    rank     status
+#> 1        Hexelasma alearum            Hoek, 1913 Species unaccepted
+#> 2     Hexelasma americanum         Pilsbry, 1916 Species   accepted
+#> 3    Hexelasma antarcticum      Borradaile, 1916 Species   accepted
+#> 4       Hexelasma arafurae            Hoek, 1913 Species   accepted
+#> 5   Hexelasma aucklandicum        (Hector, 1888) Species unaccepted
+#> 6       Hexelasma aureolum           Jones, 2000 Species   accepted
+#> 7       Hexelasma brintoni (Newman & Ross, 1971) Species   accepted
+#> 8  Hexelasma callistoderma         Pilsbry, 1911 Species   accepted
+#> 9   Hexelasma corolliforme          (Hoek, 1883) Species unaccepted
+#> 10     Hexelasma ecaudatum          (Hiro, 1939) Species unaccepted
+#> 11      Hexelasma flavidum           Jones, 2000 Species   accepted
+#> 12       Hexelasma foratum           Jones, 2000 Species   accepted
+#> 13       Hexelasma fosteri   Newman & Ross, 1971 Species unaccepted
+#> 14      Hexelasma globosum           Jones, 2000 Species   accepted
+#> 15      Hexelasma gracilis          Foster, 1981 Species   accepted
+#> 16      Hexelasma hirsutum          (Hoek, 1883) Species unaccepted
+#> 17    Hexelasma leptoderma (Newman & Ross, 1971) Species   accepted
+#> 18      Hexelasma nolearia          Foster, 1978 Species   accepted
+#> 19      Hexelasma persicum           Jones, 2000 Species   accepted
+#> 20    Hexelasma sandaracum           Jones, 2000 Species   accepted
+#> 21      Hexelasma triderma (Newman & Ross, 1971) Species   accepted
+#> 22     Hexelasma velutinum            Hoek, 1913 Species   accepted
+#>                                 unacceptreason valid_AphiaID
+#> 1                         generic reassignment        292966
+#> 2                                         <NA>        106242
+#> 3                                         <NA>        883119
+#> 4                                         <NA>        733262
+#> 5  transferred to Bathylasma (see Jones, 2000)        733253
+#> 6                                         <NA>        733263
+#> 7                                         <NA>        733264
+#> 8                                         <NA>        733265
+#> 9  transferred to Bathylasma (see Jones, 2000)        173667
+#> 10                                     synonym        733244
+#> 11                                        <NA>        733266
+#> 12                                        <NA>        733267
+#> 13    transferred to Mesolasma by Foster, 1981        733255
+#> 14                                        <NA>        733268
+#> 15                                        <NA>        733269
+#> 16 transferred to Bathylasma (see Jones, 2000)        106241
+#> 17                                        <NA>        733270
+#> 18                                        <NA>        733271
+#> 19                                        <NA>        733272
+#> 20                                        <NA>        733273
+#> 21                                        <NA>        733274
+#> 22                                        <NA>        535189
+#>                 valid_name       valid_authority  kingdom     phylum class
+#> 1       Bathylasma alearum        (Foster, 1978) Animalia Arthropoda  <NA>
+#> 2     Hexelasma americanum         Pilsbry, 1916 Animalia Arthropoda  <NA>
+#> 3    Hexelasma antarcticum      Borradaile, 1916 Animalia Arthropoda  <NA>
+#> 4       Hexelasma arafurae            Hoek, 1913 Animalia Arthropoda  <NA>
+#> 5  Bathylasma aucklandicum        (Hector, 1887) Animalia Arthropoda  <NA>
+#> 6       Hexelasma aureolum           Jones, 2000 Animalia Arthropoda  <NA>
+#> 7       Hexelasma brintoni (Newman & Ross, 1971) Animalia Arthropoda  <NA>
+#> 8  Hexelasma callistoderma         Pilsbry, 1911 Animalia Arthropoda  <NA>
+#> 9  Bathylasma corolliforme          (Hoek, 1883) Animalia Arthropoda  <NA>
+#> 10    Pachylasma ecaudatum            Hiro, 1939 Animalia Arthropoda  <NA>
+#> 11      Hexelasma flavidum           Jones, 2000 Animalia Arthropoda  <NA>
+#> 12       Hexelasma foratum           Jones, 2000 Animalia Arthropoda  <NA>
+#> 13       Mesolasma fosteri (Newman & Ross, 1981) Animalia Arthropoda  <NA>
+#> 14      Hexelasma globosum           Jones, 2000 Animalia Arthropoda  <NA>
+#> 15      Hexelasma gracilis          Foster, 1981 Animalia Arthropoda  <NA>
+#> 16     Bathylasma hirsutum          (Hoek, 1883) Animalia Arthropoda  <NA>
+#> 17    Hexelasma leptoderma (Newman & Ross, 1971) Animalia Arthropoda  <NA>
+#> 18      Hexelasma nolearia          Foster, 1978 Animalia Arthropoda  <NA>
+#> 19      Hexelasma persicum           Jones, 2000 Animalia Arthropoda  <NA>
+#> 20    Hexelasma sandaracum           Jones, 2000 Animalia Arthropoda  <NA>
+#> 21      Hexelasma triderma (Newman & Ross, 1971) Animalia Arthropoda  <NA>
+#> 22     Hexelasma velutinum            Hoek, 1913 Animalia Arthropoda  <NA>
+#>       order          family     genus
+#> 1  Sessilia Pachylasmatidae Hexelasma
+#> 2  Sessilia Pachylasmatidae Hexelasma
+#> 3  Sessilia Pachylasmatidae Hexelasma
+#> 4  Sessilia Pachylasmatidae Hexelasma
+#> 5  Sessilia Pachylasmatidae Hexelasma
+#> 6  Sessilia Pachylasmatidae Hexelasma
+#> 7  Sessilia Pachylasmatidae Hexelasma
+#> 8  Sessilia Pachylasmatidae Hexelasma
+#> 9  Sessilia Pachylasmatidae Hexelasma
+#> 10 Sessilia Pachylasmatidae Hexelasma
+#> 11 Sessilia Pachylasmatidae Hexelasma
+#> 12 Sessilia Pachylasmatidae Hexelasma
+#> 13 Sessilia Pachylasmatidae Hexelasma
+#> 14 Sessilia Pachylasmatidae Hexelasma
+#> 15 Sessilia Pachylasmatidae Hexelasma
+#> 16 Sessilia Pachylasmatidae Hexelasma
+#> 17 Sessilia Pachylasmatidae Hexelasma
+#> 18 Sessilia Pachylasmatidae Hexelasma
+#> 19 Sessilia Pachylasmatidae Hexelasma
+#> 20 Sessilia Pachylasmatidae Hexelasma
+#> 21 Sessilia Pachylasmatidae Hexelasma
+#> 22 Sessilia Pachylasmatidae Hexelasma
+#>                                                                                                                                                                                                citation
+#> 1                            WoRMS (2015). Hexelasma alearum Hoek, 1913. Accessed through:  World Register of Marine Species at http://marinespecies.org/aphia.php?p=taxdetails&id=733743 on 2016-09-29
+#> 2          Southward, A. (2004). Hexelasma americanum Pilsbry, 1916. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=106242 on 2016-09-29
+#> 3  Ewers-Saucedo, C. (2016). Hexelasma antarcticum Borradaile, 1916. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=883119 on 2016-09-29
+#> 4                       WoRMS (2015). Hexelasma arafurae Hoek, 1913. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733262 on 2016-09-29
+#> 5               WoRMS (2015). Hexelasma aucklandicum (Hector, 1888). Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733744 on 2016-09-29
+#> 6                          WoRMS (2015). Hexelasma aureolum Jones, 2000. Accessed through:  World Register of Marine Species at http://marinespecies.org/aphia.php?p=taxdetails&id=733263 on 2016-09-29
+#> 7            WoRMS (2015). Hexelasma brintoni (Newman & Ross, 1971). Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733264 on 2016-09-29
+#> 8               WoRMS (2015). Hexelasma callistoderma Pilsbry, 1911. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733265 on 2016-09-29
+#> 9                                  WoRMS (2015). Hexelasma corolliforme. Accessed through:  World Register of Marine Species at http://marinespecies.org/aphia.php?p=taxdetails&id=733745 on 2016-09-29
+#> 10                   WoRMS (2015). Hexelasma ecaudatum (Hiro, 1939). Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733746 on 2016-09-29
+#> 11                         WoRMS (2015). Hexelasma flavidum Jones, 2000. Accessed through:  World Register of Marine Species at http://marinespecies.org/aphia.php?p=taxdetails&id=733266 on 2016-09-29
+#> 12                          WoRMS (2015). Hexelasma foratum Jones, 2000. Accessed through:  World Register of Marine Species at http://marinespecies.org/aphia.php?p=taxdetails&id=733267 on 2016-09-29
+#> 13              WoRMS (2015). Hexelasma fosteri Newman & Ross, 1971. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733747 on 2016-09-29
+#> 14                         WoRMS (2015). Hexelasma globosum Jones, 2000. Accessed through:  World Register of Marine Species at http://marinespecies.org/aphia.php?p=taxdetails&id=733268 on 2016-09-29
+#> 15                        WoRMS (2015). Hexelasma gracilis Foster, 1981. Accessed through:  World Register of Marine Species at http://marinespecies.org/aphia.php?p=taxdetails&id=733269 on 2016-09-29
+#> 16                    WoRMS (2015). Hexelasma hirsutum (Hoek, 1883). Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733748 on 2016-09-29
+#> 17         WoRMS (2015). Hexelasma leptoderma (Newman & Ross, 1971). Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733270 on 2016-09-29
+#> 18                    WoRMS (2015). Hexelasma nolearia Foster, 1978. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733271 on 2016-09-29
+#> 19                         WoRMS (2015). Hexelasma persicum Jones, 2000. Accessed through:  World Register of Marine Species at http://marinespecies.org/aphia.php?p=taxdetails&id=733272 on 2016-09-29
+#> 20                       WoRMS (2015). Hexelasma sandaracum Jones, 2000. Accessed through:  World Register of Marine Species at http://marinespecies.org/aphia.php?p=taxdetails&id=733273 on 2016-09-29
+#> 21           WoRMS (2015). Hexelasma triderma (Newman & Ross, 1971). Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=733274 on 2016-09-29
+#> 22          Chan, Benny K.K. (2015). Hexelasma velutinum Hoek, 1913. Accessed through:  World Register of Marine Species at http://www.marinespecies.org/aphia.php?p=taxdetails&id=535189 on 2016-09-29
+#>                                         lsid isMarine isBrackish
+#> 1  urn:lsid:marinespecies.org:taxname:733743        1       <NA>
+#> 2  urn:lsid:marinespecies.org:taxname:106242        1       <NA>
+#> 3  urn:lsid:marinespecies.org:taxname:883119        1       <NA>
+#> 4  urn:lsid:marinespecies.org:taxname:733262        1       <NA>
+#> 5  urn:lsid:marinespecies.org:taxname:733744        1       <NA>
+#> 6  urn:lsid:marinespecies.org:taxname:733263        1       <NA>
+#> 7  urn:lsid:marinespecies.org:taxname:733264        1       <NA>
+#> 8  urn:lsid:marinespecies.org:taxname:733265        1       <NA>
+#> 9  urn:lsid:marinespecies.org:taxname:733745        1       <NA>
+#> 10 urn:lsid:marinespecies.org:taxname:733746        1       <NA>
+#> 11 urn:lsid:marinespecies.org:taxname:733266        1       <NA>
+#> 12 urn:lsid:marinespecies.org:taxname:733267        1       <NA>
+#> 13 urn:lsid:marinespecies.org:taxname:733747        1       <NA>
+#> 14 urn:lsid:marinespecies.org:taxname:733268        1       <NA>
+#> 15 urn:lsid:marinespecies.org:taxname:733269        1       <NA>
+#> 16 urn:lsid:marinespecies.org:taxname:733748        1       <NA>
+#> 17 urn:lsid:marinespecies.org:taxname:733270        1       <NA>
+#> 18 urn:lsid:marinespecies.org:taxname:733271        1       <NA>
+#> 19 urn:lsid:marinespecies.org:taxname:733272        1       <NA>
+#> 20 urn:lsid:marinespecies.org:taxname:733273        1       <NA>
+#> 21 urn:lsid:marinespecies.org:taxname:733274        1       <NA>
+#> 22 urn:lsid:marinespecies.org:taxname:535189        1       <NA>
+#>    isFreshwater isTerrestrial isExtinct match_type             modified
+#> 1          <NA>          <NA>      <NA>      exact 2013-07-03T10:40:33Z
+#> 2          <NA>          <NA>      <NA>      exact 2004-12-21T16:54:05Z
+#> 3          <NA>          <NA>      <NA>      exact 2016-08-13T06:12:43Z
+#> 4          <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
+#> 5          <NA>          <NA>      <NA>      exact 2013-07-03T10:40:33Z
+#> 6          <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
+#> 7          <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
+#> 8          <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
+#> 9          <NA>          <NA>      <NA>      exact 2013-07-03T10:40:33Z
+#> 10         <NA>          <NA>      <NA>      exact 2013-07-03T10:40:33Z
+#> 11         <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
+#> 12         <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
+#> 13         <NA>          <NA>      <NA>      exact 2013-07-03T10:40:33Z
+#> 14         <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
+#> 15         <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
+#> 16         <NA>          <NA>      <NA>      exact 2013-07-03T10:40:33Z
+#> 17         <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
+#> 18         <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
+#> 19         <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
+#> 20         <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
+#> 21         <NA>          <NA>      <NA>      exact 2013-07-03T09:26:15Z
+#> 22         <NA>          <NA>      <NA>      exact 2010-10-22T11:24:03Z
 ```
 
 ### PESI
@@ -468,10 +613,17 @@ myco_search(filter='Name CONTAINS "Candida boidinii"')
 #> 2 http://www.google.com/search?q=Candida boidinii
 ```
 
+## Contributors
+
+* Scott Chamberlain <https://github.com/sckott>
+* Francois Michonneau <https://github.com/fmichonneau>
+
 ## Meta
 
 * Please [report any issues or bugs](https://github.com/ropensci/taxizesoap/issues).
 * License: MIT
 * Get citation information for `taxizesoap` in R doing `citation(package = 'taxizesoap')`
+* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
+By participating in this project you agree to abide by its terms.
 
 [![ropensci](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
