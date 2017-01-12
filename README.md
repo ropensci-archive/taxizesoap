@@ -5,6 +5,8 @@ taxizesoap
 
 [![Build Status](https://api.travis-ci.org/ropensci/taxizesoap.png?branch=master)](https://travis-ci.org/ropensci/taxizesoap)
 
+__UPDATE__: WORMS data source is in the development version of `taxize` - and will be on CRAN soon - so for WORMS you can use `taxize` - but for PESI and Mycobank continue to use this package.
+
 `taxizesoap` is an extension to [taxize](https://github.com/ropensci/taxize), but for data sources that use SOAP data transfer protocol, which is hard to support in R. This package won't go on CRAN.
 
 Most functions in this package are different from those in `taxize`, but there are some of the same (e.g,. `classification()`). In this package, where a function is named the same as in `taxize`, I've added a `_s` at the end of the function representing the version of that function in the `taxizesoap` package. This is to avoid confounding effects when both packages are loaded at the same time.
@@ -138,7 +140,7 @@ classification_s(get_wormsid("Salvelinus fontinalis"))
 #> 9             Salmoninae  Subfamily
 #> 10            Salvelinus      Genus
 #> 11 Salvelinus fontinalis    Species
-#> 
+#>
 #> attr(,"class")
 #> [1] "classification_s"
 ```
@@ -264,10 +266,10 @@ worms_sources(ids=1080)
 #> 1                                                                                       Brusca, R.C.; Brusca, G.J. (1990). Invertebrates. Sinauer Associates: Sunderland, MA (USA). ISBN 0-87893-098-1. 922 pp.
 #> 2 Milne Edwards, H. (1840). Ordre des Copepodes. In: Histoire naturelle des Crustaces, comprenant l'anatomie, la physiologie et la classification de ces animaux. Par M. Milne Edwards. 3: 411-529, pls. 37-40.
 #>   page                                                           url link
-#> 1       http://www.marinespecies.org/aphia.php?p=sourcedetails&id=40     
-#> 2      http://www.marinespecies.org/aphia.php?p=sourcedetails&id=503     
+#> 1       http://www.marinespecies.org/aphia.php?p=sourcedetails&id=40
+#> 2      http://www.marinespecies.org/aphia.php?p=sourcedetails&id=503
 #>   fulltext
-#> 1         
+#> 1
 #> 2
 ```
 
@@ -623,7 +625,7 @@ myco_search(filter='Name CONTAINS "Candida boidinii"')
 * Please [report any issues or bugs](https://github.com/ropensci/taxizesoap/issues).
 * License: MIT
 * Get citation information for `taxizesoap` in R doing `citation(package = 'taxizesoap')`
-* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
+* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md).
 By participating in this project you agree to abide by its terms.
 
 [![ropensci](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
