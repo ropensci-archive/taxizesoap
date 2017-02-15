@@ -11,6 +11,7 @@ knitr::opts_chunk$set(
 ```
 
 [![Build Status](https://api.travis-ci.org/ropensci/taxizesoap.png?branch=master)](https://travis-ci.org/ropensci/taxizesoap)
+[![codecov.io](https://codecov.io/github/ropensci/taxizesoap/coverage.svg?branch=master)](https://codecov.io/github/ropensci/taxizesoap?branch=master)
 
 __UPDATE__: WORMS data source is in the development version of `taxize` - and will be on CRAN soon - so for WORMS you can use `taxize` - but for PESI and Mycobank continue to use this package.
 
