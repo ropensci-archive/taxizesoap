@@ -20,7 +20,8 @@ Imports:
     RCurl (>= 1.95.4.8),
     plyr,
     httr (>= 1.1.0),
-    data.table
+    data.table,
+    covr
 Suggests:
     roxygen2 (>= 5.0.1),
     XMLSchema (>= 0.8.0),
