@@ -2,6 +2,9 @@ language: r
 sudo: false
 cache: packages
 
+after_success:
+- Rscript -e 'covr::codecov()'
+
 notifications:
   slack:
     secure: JtkCANJT8IbSySdC9sUsCiITjkhxtBFhRjISffN7YBF1GCaajzyrKSQ6ZgtNsTeKbmtaXMqDXQW/kjB7r1rYEQovjo8mj1d/Ck6cmWc8AfqLknTz8eEd4gQIDRCTdfrnEJY+sL0zBeFhA1ywqOAEa9xSN1UzE2e1FPuLnr8C1yQ=
