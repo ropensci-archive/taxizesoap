@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 
 [![Build Status](https://api.travis-ci.org/ropensci/taxizesoap.png?branch=master)](https://travis-ci.org/ropensci/taxizesoap)
 
-__UPDATE__: WORMS data source is in the development version of `taxize` - and will be on CRAN soon - so for WORMS you can use `taxize` - but for PESI and Mycobank continue to use this package.
+__UPDATE__: WORMS data source is now in `taxize` - for PESI and Mycobank continue to use this package.
 
 
 `taxizesoap` is an extension to [taxize](https://github.com/ropensci/taxize), but for data sources that use SOAP data transfer protocol, which is hard to support in R. This package won't go on CRAN.
@@ -39,12 +39,6 @@ Most functions in this package are different from those in `taxize`, but there a
 </thead>
 
 <tbody>
-<tr>
-	<td style="text-align:left;">World Register of Marine Species (WoRMS)</td>
-	<td style="text-align:left;"><code>worms</code></td>
-	<td style="text-align:left;"><a href="http://www.marinespecies.org/aphia.php?p=webservice">link</a></td>
-	<td style="text-align:left;">none</td>
-</tr>
 <tr>
 	<td style="text-align:left;">Pan-European Species directories Infrastructure (PESI)</td>
 	<td style="text-align:left;"><code>pesi</code></td>
@@ -100,52 +94,6 @@ PESI
 
 ```{r}
 get_pesiid(searchterm = "Salvelinus")
-```
-
-Worms
-
-```{r}
-get_wormsid(searchterm = "Salvelinus fontinalis")
-```
-
-### Use taxonomic ids for more
-
-Get taxonomic classification
-
-```{r}
-classification_s(get_wormsid("Salvelinus fontinalis"))
-```
-
-### WORMS
-
-Get name from a WORMS id
-
-```{r}
-worms_name(ids=1080)
-```
-
-Common names from WoRMS ID
-
-```{r}
-worms_common(ids=c(1080,22388,160281,123080,22388))
-```
-
-Get records by ID, scientific name, common name, date, worms id, or external id.
-
-```{r}
-head( worms_records(scientific=c('Salmo','Aphanius')) )
-```
-
-Get sources/references by ID
-
-```{r}
-worms_sources(ids=1080)
-```
-
-Children search of WoRMS data.
-
-```{r}
-head( worms_children(ids=106135) )
 ```
 
 ### PESI
