@@ -24,7 +24,8 @@ Imports:
 Suggests:
     roxygen2 (>= 5.0.1),
     XMLSchema (>= 0.8.0),
-    testthat
+    testthat,
+    covr
 Enhances:
     taxize
 Remotes: omegahat/XMLSchema,
