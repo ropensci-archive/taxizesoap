@@ -3,7 +3,7 @@ taxizesoap
 
 
 
-[![Build Status](https://api.travis-ci.org/ropensci/taxizesoap.png?branch=master)](https://travis-ci.org/ropensci/taxizesoap)
+[![R-check](https://github.com/ropensci/taxizesoap/workflows/R-check/badge.svg)](https://github.com/ropensci/taxizesoap/actions?query=workflow%3AR-check)
 [![codecov.io](https://codecov.io/github/ropensci/taxizesoap/coverage.svg?branch=master)](https://codecov.io/github/ropensci/taxizesoap?branch=master)
 
 __UPDATE__: WORMS data source is now in `taxize` - for PESI and Mycobank continue to use this package.
