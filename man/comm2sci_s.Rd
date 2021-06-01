@@ -27,12 +27,11 @@ Get scientific names from common names.
 comm2sci_s(commnames=c('atlantic salmon','great white shark'), db='worms')
 }
 }
-\author{
-Scott Chamberlain (myrmecocystus@gmail.com)
-}
 \seealso{
 \code{\link[taxizesoap]{worms_records}}
 
 \code{\link[taxizesoap]{sci2comm_s}}
 }
-
+\author{
+Scott Chamberlain (myrmecocystus@gmail.com)
+}

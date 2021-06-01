@@ -4,8 +4,14 @@
 \alias{worms_children}
 \title{Children search of WoRMS data}
 \usage{
-worms_children(ids = NULL, offset = NULL, marine_only = 1, opts = NULL,
-  iface = NULL, ...)
+worms_children(
+  ids = NULL,
+  offset = NULL,
+  marine_only = 1,
+  opts = NULL,
+  iface = NULL,
+  ...
+)
 }
 \arguments{
 \item{ids}{(numeric) One or more WoRMS AphidID's for a taxon.}
@@ -44,4 +50,3 @@ do.call(rbind, out)
 do.call(rbind.fill, out)
 }
 }
-

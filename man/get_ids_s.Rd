@@ -40,4 +40,3 @@ get_ids_s(names="Salvelinus fontinalis", db = 'worms')
 \seealso{
 \code{\link[taxizesoap]{get_wormsid}}, \code{\link[taxizesoap]{get_pesiid}}
 }
-

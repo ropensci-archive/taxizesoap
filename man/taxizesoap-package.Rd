@@ -2,8 +2,8 @@
 % Please edit documentation in R/taxizesoap-package.R
 \docType{package}
 \name{taxizesoap-package}
-\alias{taxizesoap}
 \alias{taxizesoap-package}
+\alias{taxizesoap}
 \title{Taxnomic search and phylogeny retrieval for SOAP data sources.}
 \description{
 Taxnomic search and phylogeny retrieval for SOAP data sources.
@@ -15,4 +15,3 @@ World Register of Marine Species (WoRMS) \tab worms_ \cr
 }
 }
 \keyword{package}
-

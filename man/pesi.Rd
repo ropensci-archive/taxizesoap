@@ -32,4 +32,3 @@ and description of each of the functions used internally within this package
 \references{
 \url{http://www.eu-nomen.eu/portal/index.php}
 }
-

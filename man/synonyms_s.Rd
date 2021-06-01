@@ -43,4 +43,3 @@ synonyms_s(get_wormsid("Salvelinus fontinalis"))
 \seealso{
 \code{\link[taxizesoap]{get_wormsid}}
 }
-

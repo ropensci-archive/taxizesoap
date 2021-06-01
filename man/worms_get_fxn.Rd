@@ -10,4 +10,3 @@ worms_get_fxn(x)
 get function from ssoap defintion
 }
 \keyword{internal}
-

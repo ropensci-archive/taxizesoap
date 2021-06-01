@@ -4,8 +4,7 @@
 \alias{pesi_gen_iface}
 \title{Generate PESI function interface.}
 \usage{
-pesi_gen_iface(wsdl_url = "http://www.eu-nomen.eu/portal/soap.php?wsdl=1",
-  ...)
+pesi_gen_iface(wsdl_url = "http://www.eu-nomen.eu/portal/soap.php?wsdl=1", ...)
 }
 \arguments{
 \item{wsdl_url}{URL for the PESI SOAP WSDL file}
@@ -31,4 +30,3 @@ out@functions$getPESIRecords(scientificname='Salmo', like=FALSE)
 head(pesi_records(scientific = "Salmo", iface = out))
 }
 }
-

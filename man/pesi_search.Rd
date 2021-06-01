@@ -24,4 +24,3 @@ pesi_search(scientific='Ternatea vulgaris')
 pesi_search(scientific=c('Ternatea vulgaris','Carcharhinus altimus','Carcharhinus galapagensis'))
 }
 }
-

@@ -4,8 +4,15 @@
 \alias{pesi_records}
 \title{Get PESI records from scientific names, common names, or GUIDs}
 \usage{
-pesi_records(scientific = NULL, common = NULL, guid = NULL, like = NULL,
-  opts = NULL, iface = NULL, ...)
+pesi_records(
+  scientific = NULL,
+  common = NULL,
+  guid = NULL,
+  like = NULL,
+  opts = NULL,
+  iface = NULL,
+  ...
+)
 }
 \arguments{
 \item{scientific}{One of more scientific names}
@@ -35,4 +42,3 @@ pesi_records(guid=c('urn:lsid:marinespecies.org:taxname:105787',
                    'urn:lsid:marinespecies.org:taxname:105790'))
 }
 }
-

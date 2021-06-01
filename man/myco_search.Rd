@@ -88,4 +88,3 @@ myco_search(filter='MycoBankNr_="344025"', config=verbose())
 \references{
 \url{http://www.mycobank.org/Services/Generic/Help.aspx?s=searchservice}
 }
-

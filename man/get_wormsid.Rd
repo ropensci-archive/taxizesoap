@@ -4,8 +4,13 @@
 \alias{get_wormsid}
 \title{Get the WoRMS id for a search term.}
 \usage{
-get_wormsid(searchterm, searchtype = "scientific", accepted = TRUE,
-  ask = TRUE, verbose = TRUE)
+get_wormsid(
+  searchterm,
+  searchtype = "scientific",
+  accepted = TRUE,
+  ask = TRUE,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{searchterm}{character; A vector of common or scientific names.}
@@ -49,4 +54,3 @@ get_wormsid(searchterm="salmon", searchtype="common")
 \seealso{
 \code{\link[taxizesoap]{classification_s}}
 }
-

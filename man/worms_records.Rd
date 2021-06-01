@@ -4,10 +4,22 @@
 \alias{worms_records}
 \title{Get records by ID, scientific name, common name, date, worms id, or external id.}
 \usage{
-worms_records(scientific = NULL, common = NULL, ids = NULL,
-  extids = NULL, like = NULL, type = NULL, fuzzy = FALSE,
-  marine_only = 1, offset = NULL, startdate = NULL, enddate = NULL,
-  opts = NULL, iface = NULL, ...)
+worms_records(
+  scientific = NULL,
+  common = NULL,
+  ids = NULL,
+  extids = NULL,
+  like = NULL,
+  type = NULL,
+  fuzzy = FALSE,
+  marine_only = 1,
+  offset = NULL,
+  startdate = NULL,
+  enddate = NULL,
+  opts = NULL,
+  iface = NULL,
+  ...
+)
 }
 \arguments{
 \item{scientific}{(character) A scientific name.}
@@ -84,4 +96,3 @@ worms_records(scientific='Scotoplanes')
 worms_records(scientific='Salmo', offset=51)
 }
 }
-

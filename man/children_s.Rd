@@ -35,4 +35,3 @@ and taxonomic identifiers. This function only accepts names for now
 children_s("Aatolana", db = 'worms')
 }
 }
-

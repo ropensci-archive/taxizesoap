@@ -45,4 +45,3 @@ sci2comm_s(get_wormsid('Squatina squatina'))
 \author{
 Scott Chamberlain (myrmecocystus@gmail.com)
 }
-

@@ -34,4 +34,3 @@ The above functions are used internally to make more user friendly function inte
 to WORMS data. See \code{worms_*} for all worms functions.
 }
 \keyword{data}
-

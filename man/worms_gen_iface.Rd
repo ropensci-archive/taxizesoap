@@ -4,9 +4,10 @@
 \alias{worms_gen_iface}
 \title{Generate WORMS function interface.}
 \usage{
-
-  worms_gen_iface(wsdl_url = "http://www.marinespecies.org/aphia.php?p=soap&wsdl=1",
-  ...)
+worms_gen_iface(
+  wsdl_url = "http://www.marinespecies.org/aphia.php?p=soap&wsdl=1",
+  ...
+)
 }
 \arguments{
 \item{wsdl_url}{URL for the WORMS SOAP WSDL file}
@@ -19,4 +20,3 @@ Returns invisibly a S4 object holding all functions to interact with WORMS.
 \description{
 Generate WORMS function interface.
 }
-

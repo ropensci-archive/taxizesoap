@@ -4,8 +4,13 @@
 \alias{get_pesiid}
 \title{Get the PESI id for a search term.}
 \usage{
-get_pesiid(searchterm, searchtype = "scientific", accepted = TRUE,
-  ask = TRUE, verbose = TRUE)
+get_pesiid(
+  searchterm,
+  searchtype = "scientific",
+  accepted = TRUE,
+  ask = TRUE,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{searchterm}{character; A vector of common or scientific names.}
@@ -50,4 +55,3 @@ get_pesiid(searchterm="great white shark", searchtype="common")
 \seealso{
 \code{\link[taxizesoap]{classification_s}}
 }
-
