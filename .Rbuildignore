@@ -5,4 +5,5 @@ man-roxygen
 README.Rmd
 ^CONDUCT\.md$
 Makefile
-
+*.xml
+.github
